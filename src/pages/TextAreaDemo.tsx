@@ -24,6 +24,7 @@ const schema = yup.object({
         disabled: yup.boolean(),
         fast: yup.boolean(),
         isLoading: yup.boolean(),
+        rounded: yup.boolean(),
         rows: yup
             .tuple([yup.number().nullable(), yup.number().nullable()])
             .required()
@@ -83,6 +84,7 @@ const TextAreaDemo: React.FC = () => {
                 name="settings.isLoading"
                 label={t((i18n) => i18n.misc.settings.isLoading)}
             />
+            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
             <FormSlider
                 name="settings.rows"
                 label={`${t((i18n) => i18n.misc.settings.minRows)} - ${t(

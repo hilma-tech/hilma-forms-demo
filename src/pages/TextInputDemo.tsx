@@ -25,6 +25,7 @@ const schema = yup.object({
         disabled: yup.boolean(),
         fast: yup.boolean(),
         isLoading: yup.boolean(),
+        rounded: yup.boolean(),
         maxLength: yup.number().nullable(),
     }),
 });
@@ -85,6 +86,7 @@ const TextInputDemo: React.FC = () => {
                 name="settings.isLoading"
                 label={t((i18n) => i18n.misc.settings.isLoading)}
             />
+            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
             <FormSlider
                 name="settings.maxLength"
                 label={t((i18n) => i18n.misc.settings.maxLength)}

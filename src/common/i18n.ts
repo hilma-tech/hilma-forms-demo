@@ -15,16 +15,40 @@ const fields = createI18nText({
         textInput: "שדה הטקסט",
         password: "שדה הסיסמא",
         textArea: "אזור הטקסט",
+        select: "הסלקט",
+        multipleSelect: "הסלקט",
     },
     en: {
         switch: "the switch",
         checkbox: "the checkbox",
         textInput: "the text input",
-        password: "the password field",
+        password: "password",
         textArea: "the text area",
+        select: "the select input",
+        multipleSelect: "the select input",
     },
 });
 
+const labels = createI18nText({
+    he: {
+        switch: "מתג",
+        checkbox: "תיבת סימון",
+        textInput: "שדה טקסט",
+        password: "שדה סיסמא",
+        textArea: "אזור טקסט",
+        select: 'ברר ("סלקט")',
+        multipleSelect: 'ברר ("סלקט") רב-אפשרויות',
+    },
+    en: {
+        switch: "Switch",
+        checkbox: "Checkbox",
+        textInput: "Text Input",
+        password: "Password",
+        textArea: "Text Area",
+        select: "Select",
+        multipleSelect: "Multi-Select",
+    },
+});
 const errors = createI18nText({
     he: {
         ...formsErrors.he,
@@ -44,9 +68,18 @@ const misc = createI18nText({
             disabled: "כבוי",
             fast: "מהיר",
             isLoading: "טעינה",
+            rounded: "מעוגל",
             maxLength: "אורך מירבי",
             maxRows: "כמות שורות מירבית",
             minRows: "כמות שורות מינימלית",
+        },
+        colors: {
+            yellow: "צהוב",
+            red: "אדום",
+            orange: "כתום",
+            purple: "סגול",
+            blue: "כחול",
+            green: "ירוק",
         },
     },
     en: {
@@ -56,27 +89,19 @@ const misc = createI18nText({
             disabled: "Disabled",
             fast: "Fast",
             isLoading: "Loading State",
+            rounded: "Rounded",
             maxLength: "Maximum Length",
             maxRows: "Maximum Rows",
             minRows: "Minimum Rows",
         },
-    },
-});
-
-const labels = createI18nText({
-    he: {
-        switch: "מתג",
-        checkbox: "תיבת סימון",
-        textInput: "שדה טקסט",
-        password: "שדה סיסמא",
-        textArea: "אזור טקסט",
-    },
-    en: {
-        switch: "Switch",
-        checkbox: "Checkbox",
-        textInput: "Text Input",
-        password: "Password",
-        textArea: "Text Area",
+        colors: {
+            yellow: "Yellow",
+            red: "Red",
+            orange: "Orange",
+            purple: "Purple",
+            blue: "Blue",
+            green: "Green",
+        },
     },
 });
 
