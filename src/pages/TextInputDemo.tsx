@@ -27,6 +27,7 @@ const schema = yup.object({
         isLoading: yup.boolean(),
         rounded: yup.boolean(),
         maxLength: yup.number().nullable(),
+        placeholder: yup.string(),
     }),
 });
 
@@ -90,6 +91,11 @@ const TextInputDemo: React.FC = () => {
             <FormSlider
                 name="settings.maxLength"
                 label={t((i18n) => i18n.misc.settings.maxLength)}
+            />
+            <FormTextInput
+                fast
+                name="settings.placeholder"
+                label={t((i18n) => i18n.misc.settings.placeholder)}
             />
         </>
     );

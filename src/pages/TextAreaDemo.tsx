@@ -10,6 +10,7 @@ import {
     FormProvider,
     FormSubmitButton,
     FormCheckbox,
+    FormTextInput,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
 
@@ -30,6 +31,7 @@ const schema = yup.object({
             .required()
             .default([3, 7]),
         maxLength: yup.number().nullable(),
+        placeholder: yup.string(),
     }),
 });
 
@@ -101,6 +103,11 @@ const TextAreaDemo: React.FC = () => {
             <FormSlider
                 name="settings.maxLength"
                 label={t((i18n) => i18n.misc.settings.maxLength)}
+            />
+            <FormTextInput
+                fast
+                name="settings.placeholder"
+                label={t((i18n) => i18n.misc.settings.placeholder)}
             />
         </>
     );
