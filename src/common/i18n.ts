@@ -18,6 +18,7 @@ const fields = createI18nText({
         select: "הסלקט",
         multipleSelect: "הסלקט",
         radioGroup: "שדה זה",
+        toggleGroup: "שדה זה",
     },
     en: {
         switch: "the switch",
@@ -28,6 +29,7 @@ const fields = createI18nText({
         select: "the select input",
         multipleSelect: "the select input",
         radioGroup: "the radio group",
+        toggleGroup: "the toggle group",
     },
 });
 
@@ -41,6 +43,7 @@ const labels = createI18nText({
         select: 'ברר ("סלקט")',
         multipleSelect: 'ברר ("סלקט") רב-אפשרויות',
         radioGroup: "קבוצת כפתורי רדיו",
+        toggleGroup: 'קבוצת בחירה ("טוגל")',
     },
     en: {
         switch: "Switch",
@@ -51,6 +54,7 @@ const labels = createI18nText({
         select: "Select",
         multipleSelect: "Multi-Select",
         radioGroup: "Radio Button Group",
+        toggleGroup: "Toggle Group",
     },
 });
 const errors = createI18nText({
