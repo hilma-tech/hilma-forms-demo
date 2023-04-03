@@ -17,6 +17,7 @@ const fields = createI18nText({
         textArea: "אזור הטקסט",
         select: "הסלקט",
         multipleSelect: "הסלקט",
+        radioGroup: "שדה זה",
     },
     en: {
         switch: "the switch",
@@ -26,6 +27,7 @@ const fields = createI18nText({
         textArea: "the text area",
         select: "the select input",
         multipleSelect: "the select input",
+        radioGroup: "the radio group",
     },
 });
 
@@ -38,6 +40,7 @@ const labels = createI18nText({
         textArea: "אזור טקסט",
         select: 'ברר ("סלקט")',
         multipleSelect: 'ברר ("סלקט") רב-אפשרויות',
+        radioGroup: "קבוצת כפתורי רדיו",
     },
     en: {
         switch: "Switch",
@@ -47,6 +50,7 @@ const labels = createI18nText({
         textArea: "Text Area",
         select: "Select",
         multipleSelect: "Multi-Select",
+        radioGroup: "Radio Button Group",
     },
 });
 const errors = createI18nText({
@@ -74,6 +78,7 @@ const misc = createI18nText({
             minRows: "כמות שורות מינימלית",
             placeholder: "ממלא מקום",
             noneOption: 'אופציה ריקה ("ניקוי")',
+            disabledOptions: "אפשרויות כבויות",
         },
         colors: {
             yellow: "צהוב",
@@ -97,6 +102,7 @@ const misc = createI18nText({
             minRows: "Minimum Rows",
             placeholder: "Placeholder",
             noneOption: 'None ("Clear") Option',
+            disabledOptions: "Disabled Options",
         },
         colors: {
             yellow: "Yellow",

@@ -13,16 +13,14 @@ import {
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
 
-import { noop } from "../common/helpers";
+import { COLORS, noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
 
-const SELECT_VALUES = ["red", "green", "orange", "blue", "purple", "yellow"] as const;
-
 const schema = yup.object({
-    select: yup.string().oneOf(SELECT_VALUES).required(),
+    select: yup.string().oneOf(COLORS).required(),
     multipleSelect: yup
         .array()
-        .of(yup.string().oneOf(SELECT_VALUES).required())
+        .of(yup.string().oneOf(COLORS).required())
         .min(1, "errors.required|fields.multipleSelect|"),
 
     settings: yup.object({
@@ -52,7 +50,7 @@ const SelectDemo: React.FC = () => {
         console.log(values);
     }
 
-    const options = SELECT_VALUES.map((value) => ({
+    const options = COLORS.map((value) => ({
         value,
         content: t((i18n) => i18n.misc.colors[value]),
     }));

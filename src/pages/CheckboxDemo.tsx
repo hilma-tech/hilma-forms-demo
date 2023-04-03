@@ -26,7 +26,7 @@ const schema = yup.object({
 
 type FormValues = yup.InferType<typeof schema>;
 
-const SwitchDemo: React.FC = () => {
+const CheckboxDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
 
     const showAlert = useAlert();
@@ -76,4 +76,4 @@ export default provide([
         onSubmit: noop,
         validationSchema: schema,
     },
-])(SwitchDemo);
+])(CheckboxDemo);
