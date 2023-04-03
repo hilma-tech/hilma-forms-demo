@@ -12,7 +12,7 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
-                <Route index element={<SelectDemo />} />
+                <Route path="select" element={<SelectDemo />} />
                 <Route path="text-area" element={<TextAreaDemo />} />
                 <Route path="text-input" element={<TextInputDemo />} />
                 <Route path="checkbox" element={<CheckboxDemo />} />
