@@ -72,6 +72,8 @@ const misc = createI18nText({
             maxLength: "אורך מירבי",
             maxRows: "כמות שורות מירבית",
             minRows: "כמות שורות מינימלית",
+            placeholder: "ממלא מקום",
+            noneOption: 'אופציה ריקה ("ניקוי")',
         },
         colors: {
             yellow: "צהוב",
@@ -93,6 +95,8 @@ const misc = createI18nText({
             maxLength: "Maximum Length",
             maxRows: "Maximum Rows",
             minRows: "Minimum Rows",
+            placeholder: "Placeholder",
+            noneOption: 'None ("Clear") Option',
         },
         colors: {
             yellow: "Yellow",

@@ -1,4 +1,4 @@
-import { FormSelect } from "@hilma/forms";
+import { FormSelect, FormTextInput } from "@hilma/forms";
 
 import React from "react";
 import { Divider } from "@mui/material";
@@ -28,6 +28,8 @@ const schema = yup.object({
     settings: yup.object({
         disabled: yup.boolean(),
         rounded: yup.boolean(),
+        placeholder: yup.string(),
+        noneOption: yup.string().nullable(),
     }),
 });
 
@@ -69,6 +71,7 @@ const SelectDemo: React.FC = () => {
             <FormSelect
                 name="select"
                 {...values.settings}
+                noneOption={values.settings.noneOption ?? undefined}
                 options={options}
                 label={t((i18n) => i18n.labels.select)}
             />
@@ -76,6 +79,7 @@ const SelectDemo: React.FC = () => {
             <FormSelect
                 name="multipleSelect"
                 {...values.settings}
+                noneOption={undefined}
                 options={options}
                 multiple
                 label={t((i18n) => i18n.labels.multipleSelect)}
@@ -90,6 +94,16 @@ const SelectDemo: React.FC = () => {
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
             <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormTextInput
+                fast
+                name="settings.placeholder"
+                label={t((i18n) => i18n.misc.settings.placeholder)}
+            />
+            <FormTextInput
+                fast
+                name="settings.noneOption"
+                label={t((i18n) => i18n.misc.settings.noneOption)}
+            />
         </>
     );
 };
