@@ -19,6 +19,8 @@ const fields = createI18nText({
         multipleSelect: "הסלקט",
         radioGroup: "שדה זה",
         toggleGroup: "שדה זה",
+        time: "שדה הזמן",
+        date: "שדה התאריך",
     },
     en: {
         switch: "the switch",
@@ -30,6 +32,8 @@ const fields = createI18nText({
         multipleSelect: "the select input",
         radioGroup: "the radio group",
         toggleGroup: "the toggle group",
+        time: "the time input",
+        date: "the date input",
     },
 });
 
@@ -44,6 +48,8 @@ const labels = createI18nText({
         multipleSelect: 'ברר ("סלקט") רב-אפשרויות',
         radioGroup: "קבוצת כפתורי רדיו",
         toggleGroup: 'קבוצת בחירה ("טוגל")',
+        time: "בחירת שעה / זמן",
+        date: "בחירת תאריך",
     },
     en: {
         switch: "Switch",
@@ -55,16 +61,22 @@ const labels = createI18nText({
         multipleSelect: "Multi-Select",
         radioGroup: "Radio Button Group",
         toggleGroup: "Toggle Group",
+        time: "Time Input",
+        date: "Date Input",
     },
 });
 const errors = createI18nText({
     he: {
         ...formsErrors.he,
         isTrue: { m: "{!} צריך להיות דלוק", f: "{!} צריכה להיות דלוקה" },
+        invalidTime: "{!} צריך להיות זמן תקף",
+        invalidDate: "{!} צריך להיות תאריך תקף",
     },
     en: {
         ...formsErrors.en,
         isTrue: { m: "{!} must be turned on", f: "{!} must be turned on" },
+        invalidTime: "{!} must be a valid time",
+        invalidDate: "{!} must be a valid date",
     },
 });
 

@@ -8,13 +8,15 @@ import SelectDemo from "./pages/SelectDemo";
 import SwitchDemo from "./pages/SwitchDemo";
 import TextAreaDemo from "./pages/TextAreaDemo";
 import TextInputDemo from "./pages/TextInputDemo";
+import TimeAndDateInputsDemo from "./pages/TimeAndDateInputsDemo";
 import ToggleGroupDemo from "./pages/ToggleGroupDemo";
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
-                <Route index element={<ToggleGroupDemo />} />
+                <Route index element={<TimeAndDateInputsDemo />} />
+                <Route path="toggle-group" element={<ToggleGroupDemo />} />
                 <Route path="radio-group" element={<RadioGroupDemo />} />
                 <Route path="select" element={<SelectDemo />} />
                 <Route path="text-area" element={<TextAreaDemo />} />
