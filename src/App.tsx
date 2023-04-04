@@ -15,7 +15,8 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
-                <Route index element={<TimeAndDateInputsDemo />} />
+                <Route path="time/input" element={<TimeAndDateInputsDemo />} />
+                <Route path="date/input" element={<TimeAndDateInputsDemo />} />
                 <Route path="toggle-group" element={<ToggleGroupDemo />} />
                 <Route path="radio-group" element={<RadioGroupDemo />} />
                 <Route path="select" element={<SelectDemo />} />

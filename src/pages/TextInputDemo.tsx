@@ -12,6 +12,7 @@ import {
     FormCheckbox,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { key as _key } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -32,6 +33,8 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
+
+const key = _key<FormValues>;
 
 const TextInputDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -62,13 +65,13 @@ const TextInputDemo: React.FC = () => {
     return (
         <>
             <FormTextInput
-                name="textInput"
+                name={key("textInput")}
                 {...values.settings}
                 maxLength={values.settings.maxLength ?? undefined}
                 label={t((i18n) => i18n.labels.textInput)}
             />
             <FormPassword
-                name="password"
+                name={key("password")}
                 {...values.settings}
                 maxLength={values.settings.maxLength ?? undefined}
                 label={t((i18n) => i18n.labels.password)}
@@ -79,22 +82,28 @@ const TextInputDemo: React.FC = () => {
             <Divider />
 
             <FormCheckbox
-                name="settings.disabled"
+                name={key("settings.disabled")}
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
-            <FormCheckbox name="settings.fast" label={t((i18n) => i18n.misc.settings.fast)} />
             <FormCheckbox
-                name="settings.isLoading"
+                name={key("settings.fast")}
+                label={t((i18n) => i18n.misc.settings.fast)}
+            />
+            <FormCheckbox
+                name={key("settings.isLoading")}
                 label={t((i18n) => i18n.misc.settings.isLoading)}
             />
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox
+                name={key("settings.rounded")}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
             <FormSlider
-                name="settings.maxLength"
+                name={key("settings.maxLength")}
                 label={t((i18n) => i18n.misc.settings.maxLength)}
             />
             <FormTextInput
                 fast
-                name="settings.placeholder"
+                name={key("settings.placeholder")}
                 label={t((i18n) => i18n.misc.settings.placeholder)}
             />
         </>

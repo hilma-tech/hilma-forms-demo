@@ -13,6 +13,7 @@ import {
     FormTextInput,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { key as _key } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -36,6 +37,8 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
+
+const key = _key<FormValues>;
 
 const TextAreaDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -65,7 +68,7 @@ const TextAreaDemo: React.FC = () => {
     return (
         <>
             <FormTextArea
-                name="textArea"
+                name={key("textArea")}
                 {...values.settings}
                 minRows={values.settings.rows[0] ?? undefined}
                 maxRows={values.settings.rows[1] ?? undefined}
@@ -78,17 +81,23 @@ const TextAreaDemo: React.FC = () => {
             <Divider />
 
             <FormCheckbox
-                name="settings.disabled"
+                name={key("settings.disabled")}
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
-            <FormCheckbox name="settings.fast" label={t((i18n) => i18n.misc.settings.fast)} />
             <FormCheckbox
-                name="settings.isLoading"
+                name={key("settings.fast")}
+                label={t((i18n) => i18n.misc.settings.fast)}
+            />
+            <FormCheckbox
+                name={key("settings.isLoading")}
                 label={t((i18n) => i18n.misc.settings.isLoading)}
             />
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox
+                name={key("settings.rounded")}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
             <FormSlider
-                name="settings.rows"
+                name={key("settings.rows")}
                 label={`${t((i18n) => i18n.misc.settings.minRows)} - ${t(
                     (i18n) => i18n.misc.settings.maxRows,
                 )}`}
@@ -101,12 +110,12 @@ const TextAreaDemo: React.FC = () => {
                 maxValue={10}
             />
             <FormSlider
-                name="settings.maxLength"
+                name={key("settings.maxLength")}
                 label={t((i18n) => i18n.misc.settings.maxLength)}
             />
             <FormTextInput
                 fast
-                name="settings.placeholder"
+                name={key("settings.placeholder")}
                 label={t((i18n) => i18n.misc.settings.placeholder)}
             />
         </>

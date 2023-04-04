@@ -13,6 +13,7 @@ import {
     FormTextInput,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { key as _key } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -63,6 +64,8 @@ const schema = yup.object({
 
 type FormValues = yup.InferType<typeof schema>;
 
+const key = _key<FormValues>;
+
 const TimeAndDateInputsDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
 
@@ -92,13 +95,13 @@ const TimeAndDateInputsDemo: React.FC = () => {
     return (
         <>
             <FormTimeInput
-                name="time"
+                name={key("time")}
                 {...values.settings}
                 placeholder={values.placeholders.time}
                 label={t((i18n) => i18n.labels.time)}
             />
             <FormDateInput
-                name="date"
+                name={key("date")}
                 {...values.settings}
                 placeholder={values.placeholders.date}
                 label={t((i18n) => i18n.labels.date)}
@@ -108,18 +111,18 @@ const TimeAndDateInputsDemo: React.FC = () => {
 
             <Divider />
 
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox name={key("settings.rounded")} label={t((i18n) => i18n.misc.settings.rounded)} />
 
             <FormTextInput
                 fast
-                name="placeholders.time"
+                name={key("placeholders.time")}
                 label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
                     (i18n) => i18n.labels.time,
                 )}`}
             />
             <FormTextInput
                 fast
-                name="placeholders.date"
+                name={key("placeholders.date")}
                 label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
                     (i18n) => i18n.labels.date,
                 )}`}
