@@ -21,6 +21,10 @@ const fields = createI18nText({
         toggleGroup: "שדה זה",
         time: "שדה הזמן",
         date: "שדה התאריך",
+        file: "שדה העלאת קבצים",
+        image: "שדה העלאת תמונה",
+        recording: "שדה הקלטה",
+        autocomplete: "שדה ההשלמה האוטומטית",
     },
     en: {
         switch: "the switch",
@@ -34,6 +38,10 @@ const fields = createI18nText({
         toggleGroup: "the toggle group",
         time: "the time input",
         date: "the date input",
+        file: "the file input",
+        image: "the image input",
+        recording: "the recording",
+        autocomplete: "thehe autocomplete",
     },
 });
 
@@ -50,6 +58,10 @@ const labels = createI18nText({
         toggleGroup: 'קבוצת בחירה ("טוגל")',
         time: "בחירת שעה / זמן",
         date: "בחירת תאריך",
+        file: "העלאת קובץ",
+        image: "העלאת תמונה",
+        recording: "הקלטה",
+        autocomplete: "שדה השלמה אוטומטית",
     },
     en: {
         switch: "Switch",
@@ -63,6 +75,10 @@ const labels = createI18nText({
         toggleGroup: "Toggle Group",
         time: "Time Input",
         date: "Date Input",
+        file: "File Input",
+        image: "Image Input",
+        recording: "Recording",
+        autocomplete: "Autocomplete",
     },
 });
 const errors = createI18nText({
@@ -71,12 +87,14 @@ const errors = createI18nText({
         isTrue: { m: "{!} צריך להיות דלוק", f: "{!} צריכה להיות דלוקה" },
         invalidTime: "{!} צריך להיות זמן תקף",
         invalidDate: "{!} צריך להיות תאריך תקף",
+        fileType: "הקובץ חייב להיות מסוג {!}",
     },
     en: {
         ...formsErrors.en,
         isTrue: { m: "{!} must be turned on", f: "{!} must be turned on" },
         invalidTime: "{!} must be a valid time",
         invalidDate: "{!} must be a valid date",
+        fileType: "The uploaded file must be {?}",
     },
 });
 
@@ -84,6 +102,7 @@ const misc = createI18nText({
     he: {
         submit: "הגשה",
         onSubmit: "כל הכבוד!",
+        autocompleteDemoMessage: "ליותר אופציות ודוגמאות, ראו את הדמו של MUI על שדה השלמה אוטומטית",
         settings: {
             disabled: "כבוי",
             fast: "מהיר",
@@ -95,6 +114,10 @@ const misc = createI18nText({
             placeholder: "ממלא מקום",
             noneOption: 'אופציה ריקה ("ניקוי")',
             disabledOptions: "אפשרויות כבויות",
+            fileType: "סוג קובץ",
+            disableDragNDrop: "ביטול גרירה",
+            singleUpload: "העלאת רק קובץ אחד",
+            freeSolo: "הקלדה חופשית",
         },
         colors: {
             yellow: "צהוב",
@@ -104,10 +127,18 @@ const misc = createI18nText({
             blue: "כחול",
             green: "ירוק",
         },
+        fileTypes: {
+            file: "קובץ",
+            image: "תמונה",
+            audio: "שמע",
+            gif: "תמונה נעה (GIF)",
+            video: "סרטון",
+        },
     },
     en: {
         submit: "Submit",
         onSubmit: "Well done!",
+        autocompleteDemoMessage: "For more properties and options, view MUI's Autocomplete demo",
         settings: {
             disabled: "Disabled",
             fast: "Fast",
@@ -119,6 +150,10 @@ const misc = createI18nText({
             placeholder: "Placeholder",
             noneOption: 'None ("Clear") Option',
             disabledOptions: "Disabled Options",
+            fileType: "File Type",
+            disableDragNDrop: "Disable Drag & Drop",
+            singleUpload: "Single Upload",
+            freeSolo: "Free Solo",
         },
         colors: {
             yellow: "Yellow",
@@ -127,6 +162,13 @@ const misc = createI18nText({
             purple: "Purple",
             blue: "Blue",
             green: "Green",
+        },
+        fileTypes: {
+            file: "File",
+            image: "Image",
+            audio: "Audio",
+            gif: "GIF",
+            video: "Video",
         },
     },
 });
