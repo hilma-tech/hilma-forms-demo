@@ -1,20 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import AutocompleteDemo from "./pages/AutocompleteDemo";
 
-import CheckboxDemo from "./pages/CheckboxDemo";
-import FileInputDemo from "./pages/FileInputDemo";
-import ImageInputDemo from "./pages/ImageInputDemo";
-import RadioGroupDemo from "./pages/RadioGroupDemo";
-import RecordingDemo from "./pages/RecordingDemo";
-import SelectDemo from "./pages/SelectDemo";
-import SwitchDemo from "./pages/SwitchDemo";
-import TextAreaDemo from "./pages/TextAreaDemo";
-import TextInputDemo from "./pages/TextInputDemo";
-import TimeAndDateInputsDemo from "./pages/TimeAndDateInputsDemo";
-import TimeAndDateRangesDemo from "./pages/TimeAndDateRangesDemo";
-import ToggleGroupDemo from "./pages/ToggleGroupDemo";
+import AutocompleteDemo from "./demos/AutocompleteDemo";
+import CheckboxDemo from "./demos/CheckboxDemo";
+import FileInputDemo from "./demos/FileInputDemo";
+import ImageInputDemo from "./demos/ImageInputDemo";
+import RadioGroupDemo from "./demos/RadioGroupDemo";
+import RecordingDemo from "./demos/RecordingDemo";
+import SelectDemo from "./demos/SelectDemo";
+import SwitchDemo from "./demos/SwitchDemo";
+import TextAreaDemo from "./demos/TextAreaDemo";
+import TextInputDemo from "./demos/TextInputDemo";
+import TimeAndDateInputsDemo from "./demos/TimeAndDateInputsDemo";
+import TimeAndDateRangesDemo from "./demos/TimeAndDateRangesDemo";
+import ToggleGroupDemo from "./demos/ToggleGroupDemo";
 
 function App() {
     return (
