@@ -8,6 +8,17 @@ export enum Languages {
 
 const { createI18nText, createI18n } = createTextFunctions(Languages);
 
+const languages = createI18nText({
+    he: {
+        he: "עברית",
+        en: "אנגלית",
+    },
+    en: {
+        he: "Hebrew",
+        en: "English",
+    },
+});
+
 const fields = createI18nText({
     he: {
         switch: "המתג",
@@ -57,7 +68,9 @@ const labels = createI18nText({
         radioGroup: "קבוצת כפתורי רדיו",
         toggleGroup: 'קבוצת בחירה ("טוגל")',
         time: "בחירת שעה / זמן",
+        timeRange: "טווח זמנים",
         date: "בחירת תאריך",
+        dateRange: "טווח תאריכים",
         file: "העלאת קובץ",
         image: "העלאת תמונה",
         recording: "הקלטה",
@@ -74,7 +87,9 @@ const labels = createI18nText({
         radioGroup: "Radio Button Group",
         toggleGroup: "Toggle Group",
         time: "Time Input",
+        timeRange: "Time Range",
         date: "Date Input",
+        dateRange: "Date Range",
         file: "File Input",
         image: "Image Input",
         recording: "Recording",
@@ -173,7 +188,7 @@ const misc = createI18nText({
     },
 });
 
-const i18n = createI18n({ errors, fields, misc, labels });
+const i18n = createI18n({ errors, fields, misc, labels, languages });
 
 type I18n = typeof i18n;
 

@@ -2,7 +2,13 @@ import React from "react";
 import { FormProvider, FormToggleGroup } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
-import { Languages, useSwitchedPath, usePathLanguage } from "../common/i18n";
+import {
+    Languages,
+    useSwitchedPath,
+    usePathLanguage,
+    useDirection,
+    useTranslate,
+} from "../common/i18n";
 import { useNavigate } from "react-router-dom";
 
 const LanguageToggle: React.FC = () => {
@@ -11,6 +17,8 @@ const LanguageToggle: React.FC = () => {
     const toEn = useSwitchedPath(Languages.En);
 
     const navigate = useNavigate();
+    const dir = useDirection();
+    const t = useTranslate();
 
     const switchboard = {
         [Languages.He]: toHe,
@@ -18,12 +26,17 @@ const LanguageToggle: React.FC = () => {
     };
 
     return (
-        <FormProvider initialValues={{ language }} onSubmit={noop}>
+        <FormProvider
+            initialValues={{ language }}
+            onSubmit={noop}
+            dir={dir}
+            sx={{ position: "fixed", top: "1rem", insetInlineEnd: "1rem", width: "fit-content" }}
+        >
             <FormToggleGroup
                 name="language"
                 options={[
-                    { content: "HE", value: Languages.He },
-                    { content: "EN", value: Languages.En },
+                    { content: t((i18n) => i18n.languages[Languages.He]), value: Languages.He },
+                    { content: t((i18n) => i18n.languages[Languages.En]), value: Languages.En },
                 ]}
                 onChange={(_, value: Languages) => {
                     navigate(switchboard[value]);
