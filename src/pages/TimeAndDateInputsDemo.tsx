@@ -13,44 +13,14 @@ import {
     FormTextInput,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
-import { key as _key } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-
-function isValidTime(value: unknown): value is Date {
-    if (!value) return true;
-
-    if (value instanceof Date) {
-        return true;
-    } else {
-        return false;
-    }
-}
+import { mixedDate } from "../common/schema";
 
 const schema = yup.object({
-    date: yup
-        .mixed({ check: isValidTime })
-        .nullable()
-        .required()
-        .test({
-            test: (value) => {
-                return !isNaN(value.getTime());
-            },
-            message: "errors.invalidDate|fields.date|",
-            name: "validDate",
-        }),
-    time: yup
-        .mixed({ check: isValidTime })
-        .nullable()
-        .required()
-        .test({
-            test: (value) => {
-                return !isNaN(value.getTime());
-            },
-            message: "errors.invalidTime|fields.time|",
-            name: "validTime",
-        }),
+    date: mixedDate("errors.invalidDate|fields.date"),
+    time: mixedDate("errors.invalidTime|fields.time"),
 
     placeholders: yup.object({
         time: yup.string().default("hh:mm"),
@@ -63,8 +33,6 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
-
-const key = _key<FormValues>;
 
 const TimeAndDateInputsDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -95,13 +63,13 @@ const TimeAndDateInputsDemo: React.FC = () => {
     return (
         <>
             <FormTimeInput
-                name={key("time")}
+                name="time"
                 {...values.settings}
                 placeholder={values.placeholders.time}
                 label={t((i18n) => i18n.labels.time)}
             />
             <FormDateInput
-                name={key("date")}
+                name="date"
                 {...values.settings}
                 placeholder={values.placeholders.date}
                 label={t((i18n) => i18n.labels.date)}
@@ -111,18 +79,18 @@ const TimeAndDateInputsDemo: React.FC = () => {
 
             <Divider />
 
-            <FormCheckbox name={key("settings.rounded")} label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
 
             <FormTextInput
                 fast
-                name={key("placeholders.time")}
+                name="placeholders.time"
                 label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
                     (i18n) => i18n.labels.time,
                 )}`}
             />
             <FormTextInput
                 fast
-                name={key("placeholders.date")}
+                name="placeholders.date"
                 label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
                     (i18n) => i18n.labels.date,
                 )}`}

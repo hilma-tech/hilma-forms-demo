@@ -12,7 +12,6 @@ import {
     FormSwitch,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
-import { key as _key } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -26,8 +25,6 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
-
-const key = _key<FormValues>;
 
 const CheckboxDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -58,7 +55,7 @@ const CheckboxDemo: React.FC = () => {
     return (
         <>
             <FormCheckbox
-                name={key("checkbox")}
+                name="checkbox"
                 {...values.settings}
                 label={t((i18n) => i18n.labels.checkbox)}
             />
@@ -68,7 +65,7 @@ const CheckboxDemo: React.FC = () => {
             <Divider />
 
             <FormSwitch
-                name={key("settings.disabled")}
+                name="settings.disabled"
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
         </>

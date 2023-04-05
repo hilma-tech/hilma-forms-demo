@@ -1,11 +1,10 @@
-import { FormSubmitButton, FormSwitch } from "@hilma/forms";
+import { FormSwitch } from "@hilma/forms";
 
 import React from "react";
 import { Divider } from "@mui/material";
 import * as yup from "yup";
-import { useFormConfig, useForm, useAlert, FormProvider } from "@hilma/forms";
+import { useFormConfig, useForm, useAlert, FormProvider, FormSubmitButton } from "@hilma/forms";
 import { provide } from "@hilma/tools";
-import { key as _key } from "@hilma/forms";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -19,8 +18,6 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
-
-const key = _key<FormValues>;
 
 const SwitchDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -51,7 +48,7 @@ const SwitchDemo: React.FC = () => {
     return (
         <>
             <FormSwitch
-                name={key("switch")}
+                name="switch"
                 {...values.settings}
                 label={t((i18n) => i18n.labels.switch)}
             />
@@ -60,7 +57,7 @@ const SwitchDemo: React.FC = () => {
 
             <Divider />
 
-            <FormSwitch name={key("settings.disabled")} label={t((i18n) => i18n.misc.settings.disabled)} />
+            <FormSwitch name="settings.disabled" label={t((i18n) => i18n.misc.settings.disabled)} />
         </>
     );
 };

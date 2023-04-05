@@ -12,7 +12,6 @@ import {
     FormCheckbox,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
-import { key as _key } from "@hilma/forms";
 
 import { COLORS, noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -33,8 +32,6 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
-
-const key = _key<FormValues>;
 
 const SelectDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -70,7 +67,7 @@ const SelectDemo: React.FC = () => {
     return (
         <>
             <FormSelect
-                name={key("select")}
+                name="select"
                 {...values.settings}
                 noneOption={values.settings.noneOption ?? undefined}
                 options={options}
@@ -78,7 +75,7 @@ const SelectDemo: React.FC = () => {
             />
 
             <FormSelect
-                name={key("multipleSelect")}
+                name="multipleSelect"
                 {...values.settings}
                 noneOption={undefined}
                 options={options}
@@ -91,21 +88,18 @@ const SelectDemo: React.FC = () => {
             <Divider />
 
             <FormCheckbox
-                name={key("settings.disabled")}
+                name="settings.disabled"
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
-            <FormCheckbox
-                name={key("settings.rounded")}
-                label={t((i18n) => i18n.misc.settings.rounded)}
-            />
+            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
             <FormTextInput
                 fast
-                name={key("settings.placeholder")}
+                name="settings.placeholder"
                 label={t((i18n) => i18n.misc.settings.placeholder)}
             />
             <FormTextInput
                 fast
-                name={key("settings.noneOption")}
+                name="settings.noneOption"
                 label={t((i18n) => i18n.misc.settings.noneOption)}
             />
         </>

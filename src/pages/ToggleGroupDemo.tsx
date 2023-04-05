@@ -12,7 +12,6 @@ import {
     FormCheckbox,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
-import { key as _key } from "@hilma/forms";
 
 import { COLORS, COLORS_TO_HEX, noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -26,8 +25,6 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
-
-const key = _key<FormValues>;
 
 const ToggleGroupDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -68,7 +65,7 @@ const ToggleGroupDemo: React.FC = () => {
     return (
         <>
             <FormToggleGroup
-                name={key("toggleGroup")}
+                name="toggleGroup"
                 {...values.settings}
                 options={options}
                 label={t((i18n) => i18n.labels.toggleGroup)}
@@ -78,10 +75,7 @@ const ToggleGroupDemo: React.FC = () => {
 
             <Divider />
 
-            <FormCheckbox
-                name={key("settings.rounded")}
-                label={t((i18n) => i18n.misc.settings.rounded)}
-            />
+            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
         </>
     );
 };

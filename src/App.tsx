@@ -9,12 +9,14 @@ import SwitchDemo from "./pages/SwitchDemo";
 import TextAreaDemo from "./pages/TextAreaDemo";
 import TextInputDemo from "./pages/TextInputDemo";
 import TimeAndDateInputsDemo from "./pages/TimeAndDateInputsDemo";
+import TimeAndDateRangesDemo from "./pages/TimeAndDateRangesDemo";
 import ToggleGroupDemo from "./pages/ToggleGroupDemo";
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
+            <Route index element={<TimeAndDateRangesDemo />} />
                 <Route path="time/input" element={<TimeAndDateInputsDemo />} />
                 <Route path="date/input" element={<TimeAndDateInputsDemo />} />
                 <Route path="toggle-group" element={<ToggleGroupDemo />} />

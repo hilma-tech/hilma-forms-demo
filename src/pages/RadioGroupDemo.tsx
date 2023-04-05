@@ -5,7 +5,6 @@ import { Divider } from "@mui/material";
 import * as yup from "yup";
 import { useFormConfig, useForm, useAlert, FormProvider, FormSubmitButton } from "@hilma/forms";
 import { provide } from "@hilma/tools";
-import { key as _key } from "@hilma/forms";
 
 import { COLORS, noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
@@ -19,8 +18,6 @@ const schema = yup.object({
 });
 
 type FormValues = yup.InferType<typeof schema>;
-
-const key = _key<FormValues>;
 
 const RadioGroupDemo: React.FC = () => {
     const { values } = useForm<FormValues>();
@@ -57,7 +54,7 @@ const RadioGroupDemo: React.FC = () => {
     return (
         <>
             <FormRadioGroup
-                name={key("radioGroup")}
+                name="radioGroup"
                 options={options}
                 label={t((i18n) => i18n.labels.radioGroup)}
             />
@@ -68,7 +65,7 @@ const RadioGroupDemo: React.FC = () => {
 
             <FormSelect
                 multiple
-                name={key("settings.disabledOptions")}
+                name="settings.disabledOptions"
                 options={COLORS.map((_, i) => ({ value: i, content: `${i + 1}` }))}
                 label={t((i18n) => i18n.misc.settings.disabledOptions)}
             />
