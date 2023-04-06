@@ -62,14 +62,14 @@ const ImageInputDemo: React.FC = () => {
             <FormImageInput
                 name={schema.key((values) => values.image)}
                 filesUploader={filesUploader}
-                buttonText={t(i18n => i18n.labels.image)}
-                label={t(i18n => i18n.labels.image)}
+                buttonText={t((i18n) => i18n.labels.image)}
+                label={t((i18n) => i18n.labels.image)}
                 {...values.settings}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
                 name={schema.key((values) => values.settings.rounded)}

@@ -9,7 +9,7 @@ import {
     useAlert,
     FormProvider,
     FormSubmitButton,
-    FormCheckbox,
+    FormSwitch,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
 
@@ -20,7 +20,7 @@ const schema = yup.object({
     toggleGroup: yup.string().required().oneOf(COLORS),
 
     settings: yup.object({
-        rounded: yup.boolean(),
+        rounded: yup.boolean().default(true),
     }),
 });
 
@@ -71,11 +71,11 @@ const ToggleGroupDemo: React.FC = () => {
                 label={t((i18n) => i18n.labels.toggleGroup)}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormSwitch name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
         </>
     );
 };

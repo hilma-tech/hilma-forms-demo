@@ -9,7 +9,7 @@ import {
     useAlert,
     FormProvider,
     FormSubmitButton,
-    FormCheckbox,
+    FormSwitch,
     FormTextInput,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
@@ -75,11 +75,11 @@ const TimeAndDateInputsDemo: React.FC = () => {
                 label={t((i18n) => i18n.labels.date)}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormSwitch name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
 
             <FormTextInput
                 fast

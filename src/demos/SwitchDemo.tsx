@@ -53,9 +53,9 @@ const SwitchDemo: React.FC = () => {
                 label={t((i18n) => i18n.labels.switch)}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
             <FormSwitch name="settings.disabled" label={t((i18n) => i18n.misc.settings.disabled)} />
         </>

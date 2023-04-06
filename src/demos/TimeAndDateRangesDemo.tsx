@@ -90,12 +90,13 @@ const SwitchDemo: React.FC = () => {
                 toPlaceholder={values.placeholders.date.to}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
             <FormTextInput name="placeholders.time.from" />
             <FormTextInput name="placeholders.time.to" />
+
             <FormTextInput name="placeholders.date.from" />
             <FormTextInput name="placeholders.date.to" />
         </>

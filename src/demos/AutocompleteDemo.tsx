@@ -93,9 +93,9 @@ const AutocompleteDemo: React.FC = () => {
                 {...values.settings}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
                 name={schema.key((values) => values.settings.rounded)}
@@ -106,7 +106,7 @@ const AutocompleteDemo: React.FC = () => {
                 label={t((i18n) => i18n.misc.settings.freeSolo)}
             />
 
-            <Typography>{t((i18n) => i18n.misc.autocompleteDemoMessage)}</Typography>
+            <Typography color="primary.dark">{t((i18n) => i18n.misc.autocompleteDemoMessage)}</Typography>
         </>
     );
 };

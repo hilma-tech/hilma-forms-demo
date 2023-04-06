@@ -74,9 +74,9 @@ const TextInputDemo: React.FC = () => {
                 label={t((i18n) => i18n.labels.password)}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
                 name="settings.disabled"

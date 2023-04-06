@@ -9,7 +9,7 @@ import {
     useAlert,
     FormProvider,
     FormSubmitButton,
-    FormCheckbox,
+    FormSwitch,
 } from "@hilma/forms";
 import { useFiles } from "@hilma/fileshandler-client";
 import { provide } from "@hilma/tools";
@@ -64,11 +64,11 @@ const RecordingDemo: React.FC = () => {
                 {...values.settings}
             />
 
-            <FormSubmitButton>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
+            <FormSubmitButton sx={{ mt: 5 }}>{t((i18n) => i18n.misc.submit)}</FormSubmitButton>
 
-            <Divider />
+            <Divider sx={{ mb: 10 }} />
 
-            <FormCheckbox
+            <FormSwitch
                 name={schema.key((values) => values.settings.rounded)}
                 label={t((i18n) => i18n.misc.settings.rounded)}
             />
