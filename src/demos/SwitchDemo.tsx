@@ -13,9 +13,11 @@ const schema = yup.object({
     switch: yup.boolean().isTrue("errors.isTrue.m|fields.switch|"),
 
     settings: yup.object({
-        disabled: yup.boolean(),
+        disabled: yup.boolean().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -48,7 +50,7 @@ const SwitchDemo: React.FC = () => {
     return (
         <>
             <FormSwitch
-                name="switch"
+                name={names.switch}
                 {...values.settings}
                 label={t((i18n) => i18n.labels.switch)}
             />
@@ -57,7 +59,10 @@ const SwitchDemo: React.FC = () => {
 
             <Divider sx={{ mb: 10 }} />
 
-            <FormSwitch name="settings.disabled" label={t((i18n) => i18n.misc.settings.disabled)} />
+            <FormSwitch
+                name={names.settings.disabled}
+                label={t((i18n) => i18n.misc.settings.disabled)}
+            />
         </>
     );
 };

@@ -13,9 +13,11 @@ const schema = yup.object({
     radioGroup: yup.string().required().oneOf(COLORS),
 
     settings: yup.object({
-        disabledOptions: yup.array().of(yup.number()),
+        disabledOptions: yup.array().of(yup.number()).required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -54,7 +56,7 @@ const RadioGroupDemo: React.FC = () => {
     return (
         <>
             <FormRadioGroup
-                name="radioGroup"
+                name={names.radioGroup}
                 options={options}
                 label={t((i18n) => i18n.labels.radioGroup)}
             />
@@ -65,7 +67,7 @@ const RadioGroupDemo: React.FC = () => {
 
             <FormSelect
                 multiple
-                name="settings.disabledOptions"
+                name={names.settings.disabledOptions}
                 options={COLORS.map((_, i) => ({ value: i, content: `${i + 1}` }))}
                 label={t((i18n) => i18n.misc.settings.disabledOptions)}
             />

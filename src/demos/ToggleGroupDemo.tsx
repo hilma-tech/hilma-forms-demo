@@ -20,9 +20,11 @@ const schema = yup.object({
     toggleGroup: yup.string().required().oneOf(COLORS),
 
     settings: yup.object({
-        rounded: yup.boolean().default(true),
+        rounded: yup.boolean().required().default(true),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -65,7 +67,7 @@ const ToggleGroupDemo: React.FC = () => {
     return (
         <>
             <FormToggleGroup
-                name="toggleGroup"
+                name={names.toggleGroup}
                 {...values.settings}
                 options={options}
                 label={t((i18n) => i18n.labels.toggleGroup)}
@@ -75,7 +77,10 @@ const ToggleGroupDemo: React.FC = () => {
 
             <Divider sx={{ mb: 10 }} />
 
-            <FormSwitch name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormSwitch
+                name={names.settings.rounded}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
         </>
     );
 };

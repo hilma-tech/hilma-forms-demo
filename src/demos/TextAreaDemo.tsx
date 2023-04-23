@@ -22,18 +22,20 @@ const schema = yup.object({
     textArea: yup.string().required().min(10).max(240),
 
     settings: yup.object({
-        disabled: yup.boolean(),
-        fast: yup.boolean(),
-        isLoading: yup.boolean(),
-        rounded: yup.boolean(),
+        disabled: yup.boolean().required(),
+        fast: yup.boolean().required(),
+        isLoading: yup.boolean().required(),
+        rounded: yup.boolean().required(),
         rows: yup
             .tuple([yup.number().nullable(), yup.number().nullable()])
             .required()
             .default([3, 7]),
-        maxLength: yup.number().nullable(),
-        placeholder: yup.string(),
+        maxLength: yup.number().required().nullable(),
+        placeholder: yup.string().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -65,7 +67,7 @@ const TextAreaDemo: React.FC = () => {
     return (
         <>
             <FormTextArea
-                name="textArea"
+                name={names.textArea}
                 {...values.settings}
                 minRows={values.settings.rows[0] ?? undefined}
                 maxRows={values.settings.rows[1] ?? undefined}
@@ -78,17 +80,20 @@ const TextAreaDemo: React.FC = () => {
             <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
-                name="settings.disabled"
+                name={names.settings.disabled}
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
-            <FormCheckbox name="settings.fast" label={t((i18n) => i18n.misc.settings.fast)} />
+            <FormCheckbox name={names.settings.fast} label={t((i18n) => i18n.misc.settings.fast)} />
             <FormCheckbox
-                name="settings.isLoading"
+                name={names.settings.isLoading}
                 label={t((i18n) => i18n.misc.settings.isLoading)}
             />
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox
+                name={names.settings.rounded}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
             <FormSlider
-                name="settings.rows"
+                name={names.settings.rows}
                 label={`${t((i18n) => i18n.misc.settings.minRows)} - ${t(
                     (i18n) => i18n.misc.settings.maxRows,
                 )}`}
@@ -101,12 +106,12 @@ const TextAreaDemo: React.FC = () => {
                 maxValue={10}
             />
             <FormSlider
-                name="settings.maxLength"
+                name={names.settings.maxLength}
                 label={t((i18n) => i18n.misc.settings.maxLength)}
             />
             <FormTextInput
                 fast
-                name="settings.placeholder"
+                name={names.settings.placeholder}
                 label={t((i18n) => i18n.misc.settings.placeholder)}
             />
         </>

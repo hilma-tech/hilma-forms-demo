@@ -30,9 +30,11 @@ const schema = yup.object({
 
     settings: yup.object({
         type: yup.mixed({ check: isFileType }).required().default("file"),
-        rounded: yup.boolean(),
+        rounded: yup.boolean().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -67,7 +69,7 @@ const FileInputDemo: React.FC = () => {
     return (
         <>
             <FormFileInput
-                name={schema.key((values) => values.file)}
+                name={names.file}
                 label={t((i18n) => i18n.labels.file)}
                 inputText={t((i18n) => i18n.labels.file)}
                 typeErrorMsg={t((i18n) => i18n.errors.fileType)?.replace(
@@ -83,7 +85,7 @@ const FileInputDemo: React.FC = () => {
             <Divider sx={{ mb: 10 }} />
 
             <FormSelect
-                name={schema.key((values) => values.settings.type)}
+                name={names.settings.type}
                 label={t((i18n) => i18n.misc.settings.fileType)}
                 options={FILE_TYPES.map((value) => ({
                     value,
@@ -92,7 +94,7 @@ const FileInputDemo: React.FC = () => {
             />
 
             <FormSwitch
-                name={schema.key((values) => values.settings.rounded)}
+                name={names.settings.rounded}
                 label={t((i18n) => i18n.misc.settings.rounded)}
             />
         </>

@@ -22,14 +22,16 @@ const schema = yup.object({
     password: yup.string().required().min(3),
 
     settings: yup.object({
-        disabled: yup.boolean(),
-        fast: yup.boolean(),
-        isLoading: yup.boolean(),
-        rounded: yup.boolean(),
-        maxLength: yup.number().nullable(),
-        placeholder: yup.string(),
+        disabled: yup.boolean().required(),
+        fast: yup.boolean().required(),
+        isLoading: yup.boolean().required(),
+        rounded: yup.boolean().required(),
+        maxLength: yup.number().required().nullable(),
+        placeholder: yup.string().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -62,13 +64,13 @@ const TextInputDemo: React.FC = () => {
     return (
         <>
             <FormTextInput
-                name="textInput"
+                name={names.textInput}
                 {...values.settings}
                 maxLength={values.settings.maxLength ?? undefined}
                 label={t((i18n) => i18n.labels.textInput)}
             />
             <FormPassword
-                name="password"
+                name={names.password}
                 {...values.settings}
                 maxLength={values.settings.maxLength ?? undefined}
                 label={t((i18n) => i18n.labels.password)}
@@ -79,22 +81,25 @@ const TextInputDemo: React.FC = () => {
             <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
-                name="settings.disabled"
+                name={names.settings.disabled}
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
-            <FormCheckbox name="settings.fast" label={t((i18n) => i18n.misc.settings.fast)} />
+            <FormCheckbox name={names.settings.fast} label={t((i18n) => i18n.misc.settings.fast)} />
             <FormCheckbox
-                name="settings.isLoading"
+                name={names.settings.isLoading}
                 label={t((i18n) => i18n.misc.settings.isLoading)}
             />
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox
+                name={names.settings.rounded}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
             <FormSlider
-                name="settings.maxLength"
+                name={names.settings.maxLength}
                 label={t((i18n) => i18n.misc.settings.maxLength)}
             />
             <FormTextInput
                 fast
-                name="settings.placeholder"
+                name={names.settings.placeholder}
                 label={t((i18n) => i18n.misc.settings.placeholder)}
             />
         </>

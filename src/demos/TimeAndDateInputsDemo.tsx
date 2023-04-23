@@ -23,14 +23,16 @@ const schema = yup.object({
     time: mixedDate("errors.invalidTime|fields.time"),
 
     placeholders: yup.object({
-        time: yup.string().default("hh:mm"),
-        date: yup.string().default("dd/mm/yyyy"),
+        time: yup.string().defined().default("hh:mm"),
+        date: yup.string().defined().default("dd/mm/yyyy"),
     }),
 
     settings: yup.object({
-        rounded: yup.boolean(),
+        rounded: yup.boolean().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -63,13 +65,13 @@ const TimeAndDateInputsDemo: React.FC = () => {
     return (
         <>
             <FormTimeInput
-                name="time"
+                name={names.time}
                 {...values.settings}
                 placeholder={values.placeholders.time}
                 label={t((i18n) => i18n.labels.time)}
             />
             <FormDateInput
-                name="date"
+                name={names.date}
                 {...values.settings}
                 placeholder={values.placeholders.date}
                 label={t((i18n) => i18n.labels.date)}
@@ -79,18 +81,21 @@ const TimeAndDateInputsDemo: React.FC = () => {
 
             <Divider sx={{ mb: 10 }} />
 
-            <FormSwitch name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormSwitch
+                name={names.settings.rounded}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
 
             <FormTextInput
                 fast
-                name="placeholders.time"
+                name={names.placeholders.time}
                 label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
                     (i18n) => i18n.labels.time,
                 )}`}
             />
             <FormTextInput
                 fast
-                name="placeholders.date"
+                name={names.placeholders.date}
                 label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
                     (i18n) => i18n.labels.date,
                 )}`}

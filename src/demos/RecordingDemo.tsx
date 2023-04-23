@@ -21,9 +21,11 @@ const schema = yup.object({
     recording: yup.string().nullable().required(),
 
     settings: yup.object({
-        rounded: yup.boolean(),
+        rounded: yup.boolean().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -58,7 +60,7 @@ const RecordingDemo: React.FC = () => {
     return (
         <>
             <FormRecording
-                name="recording"
+                name={names.recording}
                 filesUploader={filesUploader}
                 label={t((i18n) => i18n.labels.recording)}
                 {...values.settings}
@@ -69,7 +71,7 @@ const RecordingDemo: React.FC = () => {
             <Divider sx={{ mb: 10 }} />
 
             <FormSwitch
-                name={schema.key((values) => values.settings.rounded)}
+                name={names.settings.rounded}
                 label={t((i18n) => i18n.misc.settings.rounded)}
             />
         </>

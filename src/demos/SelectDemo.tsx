@@ -24,12 +24,14 @@ const schema = yup.object({
         .min(1, "errors.required|fields.multipleSelect|"),
 
     settings: yup.object({
-        disabled: yup.boolean(),
-        rounded: yup.boolean(),
-        placeholder: yup.string(),
-        noneOption: yup.string().nullable(),
+        disabled: yup.boolean().required(),
+        rounded: yup.boolean().required(),
+        placeholder: yup.string().required(),
+        noneOption: yup.string().required().nullable(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -67,7 +69,7 @@ const SelectDemo: React.FC = () => {
     return (
         <>
             <FormSelect
-                name="select"
+                name={names.select}
                 {...values.settings}
                 noneOption={values.settings.noneOption ?? undefined}
                 options={options}
@@ -75,7 +77,7 @@ const SelectDemo: React.FC = () => {
             />
 
             <FormSelect
-                name="multipleSelect"
+                name={names.multipleSelect}
                 {...values.settings}
                 noneOption={undefined}
                 options={options}
@@ -88,18 +90,21 @@ const SelectDemo: React.FC = () => {
             <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
-                name="settings.disabled"
+                name={names.settings.disabled}
                 label={t((i18n) => i18n.misc.settings.disabled)}
             />
-            <FormCheckbox name="settings.rounded" label={t((i18n) => i18n.misc.settings.rounded)} />
+            <FormCheckbox
+                name={names.settings.rounded}
+                label={t((i18n) => i18n.misc.settings.rounded)}
+            />
             <FormTextInput
                 fast
-                name="settings.placeholder"
+                name={names.settings.placeholder}
                 label={t((i18n) => i18n.misc.settings.placeholder)}
             />
             <FormTextInput
                 fast
-                name="settings.noneOption"
+                name={names.settings.noneOption}
                 label={t((i18n) => i18n.misc.settings.noneOption)}
             />
         </>

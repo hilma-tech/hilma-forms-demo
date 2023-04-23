@@ -20,9 +20,11 @@ const schema = yup.object({
     checkbox: yup.boolean().isTrue("errors.isTrue.f|fields.checkbox|"),
 
     settings: yup.object({
-        disabled: yup.boolean(),
+        disabled: yup.boolean().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -55,7 +57,7 @@ const CheckboxDemo: React.FC = () => {
     return (
         <>
             <FormCheckbox
-                name="checkbox"
+                name={names.checkbox}
                 {...values.settings}
                 label={t((i18n) => i18n.labels.checkbox)}
             />
@@ -64,7 +66,10 @@ const CheckboxDemo: React.FC = () => {
 
             <Divider sx={{ mb: 10 }} />
 
-            <FormSwitch name="settings.disabled" label={t((i18n) => i18n.misc.settings.disabled)} />
+            <FormSwitch
+                name={names.settings.disabled}
+                label={t((i18n) => i18n.misc.settings.disabled)}
+            />
         </>
     );
 };

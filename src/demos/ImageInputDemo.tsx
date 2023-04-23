@@ -21,11 +21,13 @@ const schema = yup.object({
     image: yup.string().required(),
 
     settings: yup.object({
-        disableDragNDrop: yup.boolean(),
-        singleUpload: yup.boolean(),
-        rounded: yup.boolean(),
+        disableDragNDrop: yup.boolean().required(),
+        singleUpload: yup.boolean().required(),
+        rounded: yup.boolean().required(),
     }),
 });
+
+const names = schema.names();
 
 type FormValues = yup.InferType<typeof schema>;
 
@@ -60,7 +62,7 @@ const ImageInputDemo: React.FC = () => {
     return (
         <>
             <FormImageInput
-                name={schema.key((values) => values.image)}
+                name={names.image}
                 filesUploader={filesUploader}
                 buttonText={t((i18n) => i18n.labels.image)}
                 label={t((i18n) => i18n.labels.image)}
@@ -72,15 +74,15 @@ const ImageInputDemo: React.FC = () => {
             <Divider sx={{ mb: 10 }} />
 
             <FormCheckbox
-                name={schema.key((values) => values.settings.rounded)}
+                name={names.settings.rounded}
                 label={t((i18n) => i18n.misc.settings.rounded)}
             />
             <FormCheckbox
-                name={schema.key((values) => values.settings.disableDragNDrop)}
+                name={names.settings.disableDragNDrop}
                 label={t((i18n) => i18n.misc.settings.disableDragNDrop)}
             />
             <FormCheckbox
-                name={schema.key((values) => values.settings.singleUpload)}
+                name={names.settings.singleUpload}
                 label={t((i18n) => i18n.misc.settings.singleUpload)}
             />
         </>
