@@ -1,6 +1,6 @@
 import React from "react";
 import { ErrorMsg, useFormDirection } from "@hilma/forms";
-import { useKeyableField } from "@hilma/forms/dist/common/hooks/useKeyableField.hook";
+import { useField } from "@hilma/forms";
 import Slider from "@mui/material/Slider";
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/system";
@@ -18,7 +18,7 @@ const FormSlider: React.FC<FormSliderProps> = (props) => {
 
     const dir = useFormDirection();
 
-    const [field, meta, helpers] = useKeyableField(name);
+    const [field, meta, helpers] = useField(name);
 
     return (
         <Stack width="60%">

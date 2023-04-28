@@ -1,4 +1,4 @@
-import { FormSelect, FormTextInput } from "@hilma/forms";
+import { FormSelect, FormTextInput, FormToggleGroup } from "@hilma/forms";
 
 import React from "react";
 import { Divider } from "@mui/material";
@@ -29,6 +29,8 @@ const schema = yup.object({
         placeholder: yup.string().required(),
         noneOption: yup.string().required().nullable(),
     }),
+
+    checkboxes: yup.string().oneOf(["checkbox", "regular"]).default("regular"),
 });
 
 const names = schema.names();
@@ -81,7 +83,7 @@ const SelectDemo: React.FC = () => {
                 {...values.settings}
                 noneOption={undefined}
                 options={options}
-                multiple
+                multiple={values.checkboxes === "checkbox" ? "checkbox" : true}
                 label={t((i18n) => i18n.labels.multipleSelect)}
             />
 
@@ -96,6 +98,14 @@ const SelectDemo: React.FC = () => {
             <FormCheckbox
                 name={names.settings.rounded}
                 label={t((i18n) => i18n.misc.settings.rounded)}
+            />
+            <FormToggleGroup
+                name={names.checkboxes}
+                label={t((i18n) => i18n.labels.multipleSelect)}
+                options={[
+                    { value: "regular", content: "רגיל" },
+                    { value: "checkbox", content: "תיבות סימון" },
+                ]}
             />
             <FormTextInput
                 fast

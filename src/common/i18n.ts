@@ -133,6 +133,7 @@ const misc = createI18nText({
             disableDragNDrop: "ביטול גרירה",
             singleUpload: "העלאת רק קובץ אחד",
             freeSolo: "הקלדה חופשית",
+            enableDeselect: "ניתן לבטל",
         },
         colors: {
             yellow: "צהוב",
@@ -169,6 +170,7 @@ const misc = createI18nText({
             disableDragNDrop: "Disable Drag & Drop",
             singleUpload: "Single Upload",
             freeSolo: "Free Solo",
+            enableDeselect: "Enable Deselect",
         },
         colors: {
             yellow: "Yellow",

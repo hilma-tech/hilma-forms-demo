@@ -9,7 +9,7 @@ import {
     useAlert,
     FormProvider,
     FormSubmitButton,
-    FormSwitch,
+    FormCheckbox,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
 
@@ -21,6 +21,7 @@ const schema = yup.object({
 
     settings: yup.object({
         rounded: yup.boolean().required().default(true),
+        enableDeselect: yup.boolean().required(),
     }),
 });
 
@@ -77,9 +78,14 @@ const ToggleGroupDemo: React.FC = () => {
 
             <Divider sx={{ mb: 10 }} />
 
-            <FormSwitch
+            <FormCheckbox
                 name={names.settings.rounded}
                 label={t((i18n) => i18n.misc.settings.rounded)}
+            />
+
+            <FormCheckbox
+                name={names.settings.enableDeselect}
+                label={t((i18n) => i18n.misc.settings.enableDeselect)}
             />
         </>
     );
