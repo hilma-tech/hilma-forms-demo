@@ -121,7 +121,7 @@ const TextAreaDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.placeholder)}
       />
 
-      <FormsDevtools buttonPosition="top-left" />
+      <FormsDevtools buttonPosition="bottom-right" />
     </>
   );
 };

@@ -91,7 +91,7 @@ const ToggleGroupDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.enableDeselect)}
       />
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };

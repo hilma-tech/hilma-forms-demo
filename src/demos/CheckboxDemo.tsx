@@ -74,7 +74,7 @@ const CheckboxDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
 
-      <FormsDevtools buttonPosition="top-left" />
+      <FormsDevtools buttonPosition="bottom-right" />
     </>
   );
 };

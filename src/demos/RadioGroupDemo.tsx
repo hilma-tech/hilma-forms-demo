@@ -81,7 +81,7 @@ const RadioGroupDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.disabledOptions)}
       />
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };

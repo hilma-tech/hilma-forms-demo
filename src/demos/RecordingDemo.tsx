@@ -78,7 +78,7 @@ const RecordingDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };

@@ -104,7 +104,7 @@ const TimeAndDateInputsDemo: React.FC = () => {
         )}`}
       />
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };

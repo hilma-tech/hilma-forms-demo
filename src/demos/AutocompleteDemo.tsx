@@ -117,7 +117,7 @@ const AutocompleteDemo: React.FC = () => {
         {t((i18n) => i18n.misc.autocompleteDemoMessage)}
       </Typography>
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };

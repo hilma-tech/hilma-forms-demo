@@ -105,7 +105,7 @@ const SwitchDemo: React.FC = () => {
       <FormTextInput name={names.placeholders.date.from} />
       <FormTextInput name={names.placeholders.date.to} />
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import Layout from "./components/Layout";
 
@@ -17,27 +17,28 @@ import TimeAndDateRangesDemo from "./demos/TimeAndDateRangesDemo";
 import ToggleGroupDemo from "./demos/ToggleGroupDemo";
 
 function App() {
-    return (
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route path="autocomplete" element={<AutocompleteDemo />} />
-                <Route path="recording" element={<RecordingDemo />} />
-                <Route path="image" element={<ImageInputDemo />} />
-                <Route path="file" element={<FileInputDemo />} />
-                <Route path="time/range" element={<TimeAndDateRangesDemo />} />
-                <Route path="date/range" element={<TimeAndDateRangesDemo />} />
-                <Route path="time/input" element={<TimeAndDateInputsDemo />} />
-                <Route path="date/input" element={<TimeAndDateInputsDemo />} />
-                <Route path="toggle-group" element={<ToggleGroupDemo />} />
-                <Route path="radio-group" element={<RadioGroupDemo />} />
-                <Route path="select" element={<SelectDemo />} />
-                <Route path="text-area" element={<TextAreaDemo />} />
-                <Route path="text-input" element={<TextInputDemo />} />
-                <Route path="checkbox" element={<CheckboxDemo />} />
-                <Route path="switch" element={<SwitchDemo />} />
-            </Route>
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Navigate to="autocomplete" />} />
+        <Route path="autocomplete" element={<AutocompleteDemo />} />
+        <Route path="recording" element={<RecordingDemo />} />
+        <Route path="image" element={<ImageInputDemo />} />
+        <Route path="file" element={<FileInputDemo />} />
+        <Route path="time/range" element={<TimeAndDateRangesDemo />} />
+        <Route path="date/range" element={<TimeAndDateRangesDemo />} />
+        <Route path="time/input" element={<TimeAndDateInputsDemo />} />
+        <Route path="date/input" element={<TimeAndDateInputsDemo />} />
+        <Route path="toggle-group" element={<ToggleGroupDemo />} />
+        <Route path="radio-group" element={<RadioGroupDemo />} />
+        <Route path="select" element={<SelectDemo />} />
+        <Route path="text-area" element={<TextAreaDemo />} />
+        <Route path="text-input" element={<TextInputDemo />} />
+        <Route path="checkbox" element={<CheckboxDemo />} />
+        <Route path="switch" element={<SwitchDemo />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;

@@ -28,7 +28,7 @@ const schema = yup.object({
     disabled: yup.boolean().required(),
     rounded: yup.boolean().required(),
     placeholder: yup.string().required(),
-    noneOption: yup.string().required().nullable(),
+    noneOption: yup.string().required(),
   }),
 
   checkboxes: yup.string().oneOf(["checkbox", "regular"]).default("regular"),
@@ -121,7 +121,7 @@ const SelectDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.noneOption)}
       />
 
-      <FormsDevtools noEditor buttonPosition="top-left" />
+      <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
   );
 };
