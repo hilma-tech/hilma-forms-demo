@@ -30,7 +30,7 @@ const LanguageToggle: React.FC = () => {
             initialValues={{ language }}
             onSubmit={noop}
             dir={dir}
-            sx={{ position: "fixed", top: "1rem", insetInlineEnd: "1rem", width: "fit-content" }}
+              sx={{ position: "fixed", top: "8rem", insetInlineEnd: "1rem", width: "fit-content" }}
         >
             <FormToggleGroup
                 name="language"
