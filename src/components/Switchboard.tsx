@@ -31,7 +31,7 @@ import DateRangeDemoIcon from "@mui/icons-material/DateRange";
 import ToggleGroupDemoIcon from "@mui/icons-material/Tune";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-import { I18n, useTranslate } from "../common/i18n";
+import { I18n, useDirection, useTranslate } from "../common/i18n";
 import { AppBar, Drawer, DrawerHeader } from "./Drawer";
 import LanguageToggle from "./LanguageToggle";
 
@@ -80,90 +80,94 @@ const NavListItem: React.FC<NavListItemProps> = (props) => {
   );
 };
 
+const routes: Pick<NavListItemProps, "path" | "icon" | "getLabel">[] = [
+  {
+    path: "autocomplete",
+    getLabel: (i18n) => i18n.labels.autocomplete,
+    icon: <AutocompleteDemoIcon />,
+  },
+  {
+    path: "checkbox",
+    getLabel: (i18n) => i18n.labels.checkbox,
+    icon: <CheckboxDemoIcon />,
+  },
+  {
+    path: "file",
+    getLabel: (i18n) => i18n.labels.file,
+    icon: <FileDemoIcon />,
+  },
+  {
+    path: "image",
+    getLabel: (i18n) => i18n.labels.image,
+    icon: <ImageDemoIcon />,
+  },
+  {
+    path: "recording",
+    getLabel: (i18n) => i18n.labels.recording,
+    icon: <RecordingDemoIcon />,
+  },
+  {
+    path: "radio-group",
+    getLabel: (i18n) => i18n.labels.radioGroup,
+    icon: <RadioGroupDemoIcon />,
+  },
+  {
+    path: "select",
+    getLabel: (i18n) => i18n.labels.select,
+    icon: <SelectDemoIcon />,
+  },
+  {
+    path: "switch",
+    getLabel: (i18n) => i18n.labels.switch,
+    icon: <SwitchDemoIcon />,
+  },
+  {
+    path: "text-area",
+    getLabel: (i18n) => i18n.labels.textArea,
+    icon: <TextAreaDemoIcon />,
+  },
+  {
+    path: "text-input",
+    getLabel: (i18n) => i18n.labels.textInput,
+    icon: <TextInputDemoIcon />,
+  },
+  {
+    path: "time/input",
+    getLabel: (i18n) => i18n.labels.time,
+    icon: <TimeInputDemoIcon />,
+  },
+  {
+    path: "time/range",
+    getLabel: (i18n) => i18n.labels.timeRange,
+    icon: <TimeRangeDemoIcon />,
+  },
+  {
+    path: "date/input",
+    getLabel: (i18n) => i18n.labels.date,
+    icon: <DateInputDemoIcon />,
+  },
+  {
+    path: "date/range",
+    getLabel: (i18n) => i18n.labels.dateRange,
+    icon: <DateRangeDemoIcon />,
+  },
+  {
+    path: "toggle-group",
+    getLabel: (i18n) => i18n.labels.toggleGroup,
+    icon: <ToggleGroupDemoIcon />,
+  },
+];
+
 const Switchboard: React.FC<{ children?: React.ReactNode }> = (props) => {
   const { children } = props;
 
   const [open, setOpen] = useState(false);
 
+  const t = useTranslate();
   const { pathname } = useLocation();
+  const dir = useDirection();
 
-  const routes: Pick<NavListItemProps, "path" | "icon" | "getLabel">[] = [
-    {
-      path: "autocomplete",
-      getLabel: (i18n) => i18n.labels.autocomplete,
-      icon: <AutocompleteDemoIcon />,
-    },
-    {
-      path: "checkbox",
-      getLabel: (i18n) => i18n.labels.checkbox,
-      icon: <CheckboxDemoIcon />,
-    },
-    {
-      path: "file",
-      getLabel: (i18n) => i18n.labels.file,
-      icon: <FileDemoIcon />,
-    },
-    {
-      path: "image",
-      getLabel: (i18n) => i18n.labels.image,
-      icon: <ImageDemoIcon />,
-    },
-    {
-      path: "recording",
-      getLabel: (i18n) => i18n.labels.recording,
-      icon: <RecordingDemoIcon />,
-    },
-    {
-      path: "radio-group",
-      getLabel: (i18n) => i18n.labels.radioGroup,
-      icon: <RadioGroupDemoIcon />,
-    },
-    {
-      path: "select",
-      getLabel: (i18n) => i18n.labels.select,
-      icon: <SelectDemoIcon />,
-    },
-    {
-      path: "switch",
-      getLabel: (i18n) => i18n.labels.switch,
-      icon: <SwitchDemoIcon />,
-    },
-    {
-      path: "text-area",
-      getLabel: (i18n) => i18n.labels.textArea,
-      icon: <TextAreaDemoIcon />,
-    },
-    {
-      path: "text-input",
-      getLabel: (i18n) => i18n.labels.textInput,
-      icon: <TextInputDemoIcon />,
-    },
-    {
-      path: "time/input",
-      getLabel: (i18n) => i18n.labels.time,
-      icon: <TimeInputDemoIcon />,
-    },
-    {
-      path: "time/range",
-      getLabel: (i18n) => i18n.labels.timeRange,
-      icon: <TimeRangeDemoIcon />,
-    },
-    {
-      path: "date/input",
-      getLabel: (i18n) => i18n.labels.date,
-      icon: <DateInputDemoIcon />,
-    },
-    {
-      path: "date/range",
-      getLabel: (i18n) => i18n.labels.dateRange,
-      icon: <DateRangeDemoIcon />,
-    },
-    {
-      path: "toggle-group",
-      getLabel: (i18n) => i18n.labels.toggleGroup,
-      icon: <ToggleGroupDemoIcon />,
-    },
-  ];
+  const active = routes.find(({ path }) => pathname.includes(path));
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -180,8 +184,17 @@ const Switchboard: React.FC<{ children?: React.ReactNode }> = (props) => {
           >
             <Menu />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{
+              marginInlineStart: 2,
+              flexGrow: 1,
+              textAlign: dir === "rtl" ? "right" : "left",
+            }}
+          >
+            {!!active && t(active.getLabel)}
           </Typography>
         </Toolbar>
       </AppBar>
