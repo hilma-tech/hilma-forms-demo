@@ -50,7 +50,7 @@ const fields = createI18nText({
     file: "the file input",
     image: "the image input",
     recording: "the recording",
-    autocomplete: "thehe autocomplete",
+    autocomplete: "the autocomplete",
   },
 });
 
@@ -194,6 +194,7 @@ const misc = createI18nText({
     },
   },
 });
+
 const table = createI18nText({
   he: {
     columnLabels: {
@@ -202,7 +203,18 @@ const table = createI18nText({
       stock: "מלאי",
       brand: "מותג",
       rating: "דירוג",
+      name: "שם",
+      company: "חברה",
+      email: 'דוא"ל',
     },
+    misc: {
+      search: "חיפוש",
+      noResults: "אין תוצאות",
+      endOfPage: "סוף התוצאות",
+      foundResults: "נמצאו {!} תוצאות",
+      page: "עמוד {!}",
+      showingResults: "מראה תוצאות {1} - {2} מתוך {3}"
+    }
   },
   en: {
     columnLabels: {
@@ -211,7 +223,18 @@ const table = createI18nText({
       stock: "Stock",
       brand: "Brand",
       rating: "Rating",
+      name: "Name",
+      company: "Company",
+      email: "Email",
     },
+    misc: {
+      search: "Search",
+      noResults: "No results",
+      endOfPage: "End of results",
+      foundResults: "Found {!} results",
+      page: "Page {!}",
+      showingResults: "Showing results {1} - {2} out of {3}"
+    }
   },
 });
 
