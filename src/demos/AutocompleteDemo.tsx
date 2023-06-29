@@ -113,7 +113,13 @@ const AutocompleteDemo: React.FC = () => {
         label={t((i18n) => i18n.misc.settings.freeSolo)}
       />
 
-      <Typography color="primary.dark">
+      <Typography
+        component="a"
+        href="https://mui.com/material-ui/react-autocomplete/"
+        target="_blank"
+        rel="noopener noreferrer"
+        color="primary.dark"
+      >
         {t((i18n) => i18n.misc.autocompleteDemoMessage)}
       </Typography>
 
