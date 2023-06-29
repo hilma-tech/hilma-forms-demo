@@ -10,6 +10,7 @@ import RadioGroupDemo from "./demos/RadioGroupDemo";
 import RecordingDemo from "./demos/RecordingDemo";
 import SelectDemo from "./demos/SelectDemo";
 import SwitchDemo from "./demos/SwitchDemo";
+import OnMountDemo from "./demos/table-demo/OnMountDemo";
 import PaginatedDemo from "./demos/table-demo/PaginatedDemo";
 import TextAreaDemo from "./demos/TextAreaDemo";
 import TextInputDemo from "./demos/TextInputDemo";
@@ -38,6 +39,7 @@ function App() {
         <Route path="checkbox" element={<CheckboxDemo />} />
         <Route path="switch" element={<SwitchDemo />} />
         <Route path="table/paginated" element={<PaginatedDemo />} />
+        <Route path="table/on-mount" element={<OnMountDemo />} />
       </Route>
     </Routes>
   );
