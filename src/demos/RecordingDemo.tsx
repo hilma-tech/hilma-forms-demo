@@ -19,7 +19,7 @@ import { useDirection, useTranslate } from "../common/i18n";
 import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
-  recording: yup.string().nullable().required(),
+  recording: yup.string().required().default(null),
 
   settings: yup.object({
     rounded: yup.boolean().required(),
