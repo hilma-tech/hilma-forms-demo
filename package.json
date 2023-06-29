@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hilma/forms": "file:hilma-forms-2.4.6.tgz",
+    "@hilma/forms": "^0.0.0-a3cfe6607552",
     "@hilma/forms-devtools": "^0.1.0",
     "@hilma/i18n": "^0.3.0",
     "@mui/material": "^5.11.15",
