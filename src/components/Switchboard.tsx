@@ -8,6 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import Menu from "@mui/icons-material/Menu";
@@ -63,15 +64,22 @@ const NavListItem: React.FC<NavListItemProps> = (props) => {
           }),
         })}
       >
-        <ListItemIcon
-          sx={{
-            minWidth: 0,
-            marginInlineEnd: open ? 3 : undefined,
-            justifyContent: "center",
-          }}
+        <Tooltip
+          title={open ? "" : t((i18n) => getLabel(i18n))}
+          placement="right"
+          arrow
+          enterDelay={0}
         >
-          {icon}
-        </ListItemIcon>
+          <ListItemIcon
+            sx={{
+              minWidth: 0,
+              marginInlineEnd: open ? 3 : undefined,
+              justifyContent: "center",
+            }}
+          >
+            {icon}
+          </ListItemIcon>
+        </Tooltip>
         <ListItemText
           primary={t((i18n) => getLabel(i18n))}
           sx={{ opacity: open ? 1 : 0 }}
