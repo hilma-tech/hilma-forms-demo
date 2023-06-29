@@ -30,6 +30,7 @@ import DateInputDemoIcon from "@mui/icons-material/Today";
 import DateRangeDemoIcon from "@mui/icons-material/DateRange";
 import ToggleGroupDemoIcon from "@mui/icons-material/Tune";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import TableViewIcon from "@mui/icons-material/TableView";
 
 import { I18n, useDirection, useTranslate } from "../common/i18n";
 import { AppBar, Drawer, DrawerHeader } from "./Drawer";
@@ -155,6 +156,11 @@ const routes: Pick<NavListItemProps, "path" | "icon" | "getLabel">[] = [
     path: "toggle-group",
     getLabel: (i18n) => i18n.labels.toggleGroup,
     icon: <ToggleGroupDemoIcon />,
+  },
+  {
+    path: "table/paginated",
+    getLabel: (i18n) => i18n.labels.paginatedTable,
+    icon: <TableViewIcon />,
   },
 ];
 

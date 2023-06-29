@@ -73,6 +73,8 @@ const labels = createI18nText({
     image: "העלאת תמונה",
     recording: "הקלטה",
     autocomplete: "שדה השלמה אוטומטית",
+    paginatedTable: "טבלה (עמוד-עמוד)",
+    onMountTable: "טבלה (הכל בבת אחת)",
   },
   en: {
     switch: "Switch",
@@ -92,8 +94,11 @@ const labels = createI18nText({
     image: "Image Input",
     recording: "Recording",
     autocomplete: "Autocomplete",
+    paginatedTable: "Table (Paginated)",
+    onMountTable: "Table (On Mount)",
   },
 });
+
 const errors = createI18nText({
   he: {
     ...formsErrors.he,
@@ -189,8 +194,28 @@ const misc = createI18nText({
     },
   },
 });
+const table = createI18nText({
+  he: {
+    columnLabels: {
+      title: "כותרת",
+      price: "מחיר",
+      stock: "מלאי",
+      brand: "מותג",
+      rating: "דירוג",
+    },
+  },
+  en: {
+    columnLabels: {
+      title: "Title",
+      price: "Price",
+      stock: "Stock",
+      brand: "Brand",
+      rating: "Rating",
+    },
+  },
+});
 
-const i18n = createI18n({ errors, fields, misc, labels, languages });
+const i18n = createI18n({ errors, fields, misc, labels, languages, table });
 
 export type I18n = typeof i18n;
 
