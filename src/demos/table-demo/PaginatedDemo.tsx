@@ -66,6 +66,23 @@ const PaginatedDemo: React.FC = () => {
       countKey="total"
       pageParamName="skip"
       getPageParam={(page) => String((page - 1) * 5)}
+      resultAmountText={(results) =>
+        t((i18n) => i18n.table.misc.foundResults).replace(
+          "{!}",
+          String(results)
+        )
+      }
+      endOfPageText={t((i18n) => i18n.table.misc.endOfPage)}
+      noResultsText={t((i18n) => i18n.table.misc.noResults)}
+      pageText={(page) =>
+        t((i18n) => i18n.table.misc.page).replace("{!}", String(page))
+      }
+      showingResultsText={(first, last, full) =>
+        t((i18n) => i18n.table.misc.showingResults)
+          .replace("{1}", String(first))
+          .replace("{2}", String(last))
+          .replace("{3}", String(full))
+      }
       searchbar
       searchbarPlaceholder={t((i18n) => i18n.table.misc.search)}
       styled
