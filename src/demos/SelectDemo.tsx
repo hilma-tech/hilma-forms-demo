@@ -25,10 +25,10 @@ const schema = yup.object({
     .min(1, "errors.required|fields.multipleSelect|"),
 
   settings: yup.object({
-    disabled: yup.boolean().required(),
-    rounded: yup.boolean().required(),
-    placeholder: yup.string().required(),
-    noneOption: yup.string().required(),
+    disabled: yup.boolean().default(false),
+    rounded: yup.boolean().default(false),
+    placeholder: yup.string().default(""),
+    noneOption: yup.string().default(""),
   }),
 
   checkboxes: yup.string().oneOf(["checkbox", "regular"]).default("regular"),

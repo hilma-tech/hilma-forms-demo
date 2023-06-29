@@ -15,21 +15,20 @@ import { provide } from "@hilma/tools";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-import { mixedDate } from "../common/schema";
 import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   dateRange: yup
     .tuple([
-      mixedDate("errors.invalidDate|fields.date|"),
-      mixedDate("errors.invalidDate|fields.date|"),
+      yup.date().typeError("errors.invalidDate|fields.date|").default(null),
+      yup.date().typeError("errors.invalidDate|fields.date|").default(null),
     ])
     .required()
     .default([null, null] as [any, any]),
   timeRange: yup
     .tuple([
-      mixedDate("errors.invalidTime|fields.time|"),
-      mixedDate("errors.invalidTime|fields.time|"),
+      yup.date().typeError("errors.invalidTime|fields.time|").default(null),
+      yup.date().typeError("errors.invalidTime|fields.time|").default(null),
     ])
     .required()
     .default([null, null] as [any, any]),

@@ -16,12 +16,11 @@ import { provide } from "@hilma/tools";
 
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-import { mixedDate } from "../common/schema";
 import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
-  date: mixedDate("errors.invalidDate|fields.date"),
-  time: mixedDate("errors.invalidTime|fields.time"),
+  date: yup.date().typeError("errors.invalidDate|fields.date|").default(null),
+  time: yup.date().typeError("errors.invalidTime|fields.time|").default(null),
 
   placeholders: yup.object({
     time: yup.string().defined().default("hh:mm"),
