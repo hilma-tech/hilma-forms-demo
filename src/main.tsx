@@ -19,6 +19,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     [QueryClientProvider, { client }],
     AlertProvider,
     BrowserRouter,
-    I18nProvider
-  )(App)
+    I18nProvider,
+  )(<App />),
 );
