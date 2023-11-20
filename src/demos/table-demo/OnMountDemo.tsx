@@ -1,6 +1,10 @@
 import React from "react";
 import { AdminTable, GenericColumn } from "@hilma/forms";
+import { useTableQuery } from "@hilma/forms/dist/table/fetching/useTableQuery.hook";
 import { useSearchParams } from "react-router-dom";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import Excel from "exceljs";
+import FileSaver from "file-saver";
 
 import { useDirection, useTranslate } from "../../common/i18n";
 
@@ -33,7 +37,7 @@ const UserTable = AdminTable<User>;
 const OnMountDemo: React.FC = () => {
   const t = useTranslate();
   const dir = useDirection();
-
+  const tableQuery = useTableQuery<User[]>("users");
   const [queryParams, setQueryParams] = useSearchParams();
 
   const columns: GenericColumn<User>[] = [
@@ -103,6 +107,63 @@ const OnMountDemo: React.FC = () => {
           "noopener noreferrer",
         )
       }
+      checkboxColumn
+      actionButtons={[
+        {
+          label: t((i18n) => i18n.misc.exportExcel),
+          icon: <FileDownloadIcon />,
+          shouldResetCheckboxes: true,
+          onAction: async (selected, params) => {
+            if (!tableQuery.data) return;
+
+            const rows = tableQuery.data.filter((user) => {
+              const included = (selected as string[]).includes(String(user.id));
+              return params.allChecked ? !included : included;
+            });
+
+            const workbook = new Excel.Workbook();
+            const sheet = workbook.addWorksheet(
+              t((i18n) => i18n.labels.onMountTable),
+            );
+
+            sheet.views = [{ rightToLeft: dir === "rtl" }];
+            sheet.columns = [
+              {
+                header: t((i18n) => i18n.table.columnLabels.name),
+                key: "name",
+                width: 30,
+                font: { bold: true },
+              },
+              {
+                header: t((i18n) => i18n.table.columnLabels.email),
+                key: "email",
+                width: 45,
+                font: { bold: true },
+              },
+              {
+                header: t((i18n) => i18n.table.columnLabels.company),
+                key: "companyName",
+                width: 30,
+                font: { bold: true },
+              },
+            ];
+            sheet.insertRows(
+              2,
+              rows.map((row) => ({ ...row, companyName: row.company.name })),
+            );
+
+            const excelBuffer = await workbook.xlsx.writeBuffer();
+            const fileData = new Blob([excelBuffer], {
+              type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+            });
+
+            FileSaver.saveAs(
+              fileData,
+              t((i18n) => i18n.labels.onMountTable) + ".xlsx",
+            );
+          },
+        },
+      ]}
     />
   );
 };

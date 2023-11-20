@@ -122,6 +122,7 @@ const misc = createI18nText({
     onSubmit: "כל הכבוד!",
     autocompleteDemoMessage:
       "ליותר אופציות ודוגמאות, ראו את הדמו של MUI על שדה השלמה אוטומטית",
+    exportExcel: "ייצוא לאקסל",
     settings: {
       disabled: "כבוי",
       fast: "מהיר",
@@ -160,6 +161,7 @@ const misc = createI18nText({
     onSubmit: "Well done!",
     autocompleteDemoMessage:
       "For more properties and options, view MUI's Autocomplete demo",
+    exportExcel: "Export to Excel",
     settings: {
       disabled: "Disabled",
       fast: "Fast",
