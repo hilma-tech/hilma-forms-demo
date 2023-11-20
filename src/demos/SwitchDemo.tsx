@@ -24,8 +24,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const SwitchDemo: React.FC = () => {
@@ -57,7 +55,7 @@ const SwitchDemo: React.FC = () => {
   return (
     <>
       <FormSwitch
-        name={names.switch}
+        name={"switch"}
         {...values.settings}
         label={t((i18n) => i18n.labels.switch)}
       />
@@ -69,7 +67,7 @@ const SwitchDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormSwitch
-        name={names.settings.disabled}
+        name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
 

@@ -34,8 +34,6 @@ const schema = yup.object({
   checkboxes: yup.string().oneOf(["checkbox", "regular"]).default("regular"),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const SelectDemo: React.FC = () => {
@@ -72,7 +70,7 @@ const SelectDemo: React.FC = () => {
   return (
     <>
       <FormSelect
-        name={names.select}
+        name={"select"}
         {...values.settings}
         noneOption={values.settings.noneOption ?? undefined}
         options={options}
@@ -80,7 +78,7 @@ const SelectDemo: React.FC = () => {
       />
 
       <FormSelect
-        name={names.multipleSelect}
+        name={"multipleSelect"}
         {...values.settings}
         noneOption={undefined}
         options={options}
@@ -95,15 +93,15 @@ const SelectDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormCheckbox
-        name={names.settings.disabled}
+        name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
       <FormCheckbox
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
       <FormToggleGroup
-        name={names.checkboxes}
+        name={"checkboxes"}
         label={t((i18n) => i18n.labels.multipleSelect)}
         options={[
           { value: "regular", content: "רגיל" },
@@ -112,12 +110,12 @@ const SelectDemo: React.FC = () => {
       />
       <FormTextInput
         fast
-        name={names.settings.placeholder}
+        name={"settings.placeholder"}
         label={t((i18n) => i18n.misc.settings.placeholder)}
       />
       <FormTextInput
         fast
-        name={names.settings.noneOption}
+        name={"settings.noneOption"}
         label={t((i18n) => i18n.misc.settings.noneOption)}
       />
 

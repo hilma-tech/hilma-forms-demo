@@ -25,8 +25,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const CheckboxDemo: React.FC = () => {
@@ -58,7 +56,7 @@ const CheckboxDemo: React.FC = () => {
   return (
     <>
       <FormCheckbox
-        name={names.checkbox}
+        name={"checkbox"}
         {...values.settings}
         label={t((i18n) => i18n.labels.checkbox)}
       />
@@ -70,7 +68,7 @@ const CheckboxDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormSwitch
-        name={names.settings.disabled}
+        name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
 

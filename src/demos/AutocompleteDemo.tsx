@@ -49,8 +49,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const AutocompleteDemo: React.FC = () => {
@@ -82,7 +80,7 @@ const AutocompleteDemo: React.FC = () => {
   return (
     <>
       <FormAutocomplete
-        name={names.autocomplete}
+        name={"autocomplete"}
         options={[
           {
             id: 0,
@@ -105,11 +103,11 @@ const AutocompleteDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormCheckbox
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
       <FormCheckbox
-        name={names.settings.freeSolo}
+        name={"settings.freeSolo"}
         label={t((i18n) => i18n.misc.settings.freeSolo)}
       />
 

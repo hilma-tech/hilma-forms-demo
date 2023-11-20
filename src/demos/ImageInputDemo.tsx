@@ -28,8 +28,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const ImageInputDemo: React.FC = () => {
@@ -63,7 +61,7 @@ const ImageInputDemo: React.FC = () => {
   return (
     <>
       <FormImageInput
-        name={names.image}
+        name={"image"}
         filesUploader={filesUploader}
         buttonText={t((i18n) => i18n.labels.image)}
         label={t((i18n) => i18n.labels.image)}
@@ -77,15 +75,15 @@ const ImageInputDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormCheckbox
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
       <FormCheckbox
-        name={names.settings.disableDragNDrop}
+        name={"settings.disableDragNDrop"}
         label={t((i18n) => i18n.misc.settings.disableDragNDrop)}
       />
       <FormCheckbox
-        name={names.settings.singleUpload}
+        name={"settings.singleUpload"}
         label={t((i18n) => i18n.misc.settings.singleUpload)}
       />
 

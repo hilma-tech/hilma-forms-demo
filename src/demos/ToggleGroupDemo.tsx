@@ -26,8 +26,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const ToggleGroupDemo: React.FC = () => {
@@ -69,7 +67,7 @@ const ToggleGroupDemo: React.FC = () => {
   return (
     <>
       <FormToggleGroup
-        name={names.toggleGroup}
+        name={"toggleGroup"}
         {...values.settings}
         options={options}
         label={t((i18n) => i18n.labels.toggleGroup)}
@@ -82,12 +80,12 @@ const ToggleGroupDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormCheckbox
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
 
       <FormCheckbox
-        name={names.settings.enableDeselect}
+        name={"settings.enableDeselect"}
         label={t((i18n) => i18n.misc.settings.enableDeselect)}
       />
 

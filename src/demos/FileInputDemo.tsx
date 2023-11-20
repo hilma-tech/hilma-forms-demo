@@ -35,8 +35,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const FileInputDemo: React.FC = () => {
@@ -70,7 +68,7 @@ const FileInputDemo: React.FC = () => {
   return (
     <>
       <FormFileInput
-        name={names.file}
+        name={"file"}
         label={t((i18n) => i18n.labels.file)}
         inputText={t((i18n) => i18n.labels.file)}
         typeErrorMsg={t((i18n) => i18n.errors.fileType)?.replace(
@@ -88,7 +86,7 @@ const FileInputDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormSelect
-        name={names.settings.type}
+        name={"settings.type"}
         label={t((i18n) => i18n.misc.settings.fileType)}
         options={FILE_TYPES.map((value) => ({
           value,
@@ -97,7 +95,7 @@ const FileInputDemo: React.FC = () => {
       />
 
       <FormSwitch
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
 

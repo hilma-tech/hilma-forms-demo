@@ -26,8 +26,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const RecordingDemo: React.FC = () => {
@@ -61,7 +59,7 @@ const RecordingDemo: React.FC = () => {
   return (
     <>
       <FormRecording
-        name={names.recording}
+        name={"recording"}
         filesUploader={filesUploader}
         label={t((i18n) => i18n.labels.recording)}
         {...values.settings}
@@ -74,7 +72,7 @@ const RecordingDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormSwitch
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
 

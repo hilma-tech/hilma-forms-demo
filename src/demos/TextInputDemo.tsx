@@ -32,8 +32,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const TextInputDemo: React.FC = () => {
@@ -65,13 +63,13 @@ const TextInputDemo: React.FC = () => {
   return (
     <>
       <FormTextInput
-        name={names.textInput}
+        name={"textInput"}
         {...values.settings}
         maxLength={values.settings.maxLength ?? undefined}
         label={t((i18n) => i18n.labels.textInput)}
       />
       <FormPassword
-        name={names.password}
+        name={"password"}
         {...values.settings}
         maxLength={values.settings.maxLength ?? undefined}
         label={t((i18n) => i18n.labels.password)}
@@ -84,28 +82,28 @@ const TextInputDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormCheckbox
-        name={names.settings.disabled}
+        name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
       <FormCheckbox
-        name={names.settings.fast}
+        name={"settings.fast"}
         label={t((i18n) => i18n.misc.settings.fast)}
       />
       <FormCheckbox
-        name={names.settings.isLoading}
+        name={"settings.isLoading"}
         label={t((i18n) => i18n.misc.settings.isLoading)}
       />
       <FormCheckbox
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
       <FormSlider
-        name={names.settings.maxLength}
+        name={"settings.maxLength"}
         label={t((i18n) => i18n.misc.settings.maxLength)}
       />
       <FormTextInput
         fast
-        name={names.settings.placeholder}
+        name={"settings.placeholder"}
         label={t((i18n) => i18n.misc.settings.placeholder)}
       />
 

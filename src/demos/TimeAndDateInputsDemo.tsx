@@ -32,8 +32,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const TimeAndDateInputsDemo: React.FC = () => {
@@ -65,13 +63,13 @@ const TimeAndDateInputsDemo: React.FC = () => {
   return (
     <>
       <FormTimeInput
-        name={names.time}
+        name={"time"}
         {...values.settings}
         placeholder={values.placeholders.time}
         label={t((i18n) => i18n.labels.time)}
       />
       <FormDateInput
-        name={names.date}
+        name={"date"}
         {...values.settings}
         placeholder={values.placeholders.date}
         label={t((i18n) => i18n.labels.date)}
@@ -84,20 +82,20 @@ const TimeAndDateInputsDemo: React.FC = () => {
       <Divider sx={{ mb: 10 }} />
 
       <FormSwitch
-        name={names.settings.rounded}
+        name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
 
       <FormTextInput
         fast
-        name={names.placeholders.time}
+        name={"placeholders.time"}
         label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
           (i18n) => i18n.labels.time
         )}`}
       />
       <FormTextInput
         fast
-        name={names.placeholders.date}
+        name={"placeholders.date"}
         label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
           (i18n) => i18n.labels.date
         )}`}

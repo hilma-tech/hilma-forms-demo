@@ -24,8 +24,6 @@ const schema = yup.object({
   }),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const RadioGroupDemo: React.FC = () => {
@@ -39,7 +37,7 @@ const RadioGroupDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -51,7 +49,7 @@ const RadioGroupDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   const options = COLORS.map((value, i) => ({
@@ -63,7 +61,7 @@ const RadioGroupDemo: React.FC = () => {
   return (
     <>
       <FormRadioGroup
-        name={names.radioGroup}
+        name={"radioGroup"}
         options={options}
         label={t((i18n) => i18n.labels.radioGroup)}
       />
@@ -76,7 +74,7 @@ const RadioGroupDemo: React.FC = () => {
 
       <FormSelect
         multiple
-        name={names.settings.disabledOptions}
+        name={"settings.disabledOptions"}
         options={COLORS.map((_, i) => ({ value: i, content: `${i + 1}` }))}
         label={t((i18n) => i18n.misc.settings.disabledOptions)}
       />

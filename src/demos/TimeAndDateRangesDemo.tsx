@@ -47,8 +47,6 @@ const schema = yup.object({
   settings: yup.object({}),
 });
 
-const names = schema.names();
-
 type FormValues = yup.InferType<typeof schema>;
 
 const SwitchDemo: React.FC = () => {
@@ -80,13 +78,13 @@ const SwitchDemo: React.FC = () => {
   return (
     <>
       <FormTimeRangeInput
-        name={names.timeRange}
+        name={"timeRange"}
         {...values.settings}
         fromPlaceholder={values.placeholders.time.from}
         toPlaceholder={values.placeholders.time.to}
       />
       <FormDateRangeInput
-        name={names.dateRange}
+        name={"dateRange"}
         {...values.settings}
         fromPlaceholder={values.placeholders.date.from}
         toPlaceholder={values.placeholders.date.to}
@@ -98,11 +96,11 @@ const SwitchDemo: React.FC = () => {
 
       <Divider sx={{ mb: 10 }} />
 
-      <FormTextInput name={names.placeholders.time.from} />
-      <FormTextInput name={names.placeholders.time.to} />
+      <FormTextInput name={"placeholders.time.from"} />
+      <FormTextInput name={"placeholders.time.to"} />
 
-      <FormTextInput name={names.placeholders.date.from} />
-      <FormTextInput name={names.placeholders.date.to} />
+      <FormTextInput name={"placeholders.date.from"} />
+      <FormTextInput name={"placeholders.date.to"} />
 
       <FormsDevtools noEditor buttonPosition="bottom-right" />
     </>
