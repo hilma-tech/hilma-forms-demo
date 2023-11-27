@@ -23,12 +23,12 @@ const schema = yup.object({
   password: yup.string().required().min(3),
 
   settings: yup.object({
-    disabled: yup.boolean().required(),
-    fast: yup.boolean().required(),
-    isLoading: yup.boolean().required(),
-    rounded: yup.boolean().required(),
-    maxLength: yup.number().required().nullable(),
-    placeholder: yup.string().required(),
+    disabled: yup.boolean(),
+    fast: yup.boolean(),
+    isLoading: yup.boolean(),
+    rounded: yup.boolean(),
+    maxLength: yup.number().nullable(),
+    placeholder: yup.string(),
   }),
 });
 
