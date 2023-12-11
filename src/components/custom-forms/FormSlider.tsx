@@ -18,7 +18,7 @@ const FormSlider: React.FC<FormSliderProps> = (props) => {
 
   const dir = useFormDirection();
 
-  const [field, meta, helpers] = useField(name);
+  const [field, meta, helpers] = useField<number | number[] | null>(name);
 
   return (
     <Stack width="60%">
@@ -26,6 +26,7 @@ const FormSlider: React.FC<FormSliderProps> = (props) => {
       <Stack direction="row" gap={4} alignItems="center">
         <Slider
           {...field}
+          value={field.value as number | number[]}
           onChange={(_, value) => {
             helpers.setValue(value || null);
             // we want the slider to be `touched` and display errors
@@ -48,7 +49,9 @@ const FormSlider: React.FC<FormSliderProps> = (props) => {
           max={maxValue}
         />
         <Typography color="primary.main" sx={{ width: "4rem" }}>
-          {displayValue ? displayValue(field.value) : field.value}
+          {displayValue && field.value
+            ? displayValue(field.value)
+            : field.value}
         </Typography>
       </Stack>
       <ErrorMsg error={meta.error} activeWhen={meta.touched} />
