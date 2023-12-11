@@ -1,21 +1,25 @@
-import { FormSelect, FormTextInput, FormToggleGroup } from "@hilma/forms";
-
-import React from "react";
-import { Divider } from "@mui/material";
-import * as yup from "yup";
 import {
-  useFormConfig,
-  useForm,
-  useAlert,
+  FormSelect,
+  FormSwitch,
+  FormTextInput,
+  FormToggleGroup,
+} from "@hilma/forms";
+
+import {
   FormProvider,
   FormSubmitButton,
-  FormCheckbox,
+  useAlert,
+  useForm,
+  useFormConfig,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { Divider } from "@mui/material";
+import React from "react";
+import * as yup from "yup";
 
+import { FormsDevtools } from "@hilma/forms-devtools";
 import { COLORS, noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   select: yup.string().oneOf(COLORS).required(),
@@ -47,7 +51,7 @@ const SelectDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -64,7 +68,7 @@ const SelectDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -92,11 +96,11 @@ const SelectDemo: React.FC = () => {
 
       <Divider sx={{ mb: 10 }} />
 
-      <FormCheckbox
+      <FormSwitch
         name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />

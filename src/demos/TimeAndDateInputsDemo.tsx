@@ -45,7 +45,7 @@ const TimeAndDateInputsDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -57,7 +57,7 @@ const TimeAndDateInputsDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -90,14 +90,14 @@ const TimeAndDateInputsDemo: React.FC = () => {
         fast
         name={"placeholders.time"}
         label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
-          (i18n) => i18n.labels.time
+          (i18n) => i18n.labels.time,
         )}`}
       />
       <FormTextInput
         fast
         name={"placeholders.date"}
         label={`${t((i18n) => i18n.misc.settings.placeholder)} - ${t(
-          (i18n) => i18n.labels.date
+          (i18n) => i18n.labels.date,
         )}`}
       />
 

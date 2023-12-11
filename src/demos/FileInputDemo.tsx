@@ -30,8 +30,9 @@ const schema = yup.object({
   file: yup.string().required(),
 
   settings: yup.object({
-    type: yup.mixed({ check: isFileType }).required().default("file"),
-    rounded: yup.boolean().required(),
+    type: yup.mixed({ check: isFileType }).default("file"),
+    rounded: yup.boolean(),
+    disabled: yup.boolean(),
   }),
 });
 
@@ -50,7 +51,7 @@ const FileInputDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -62,7 +63,7 @@ const FileInputDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -73,9 +74,10 @@ const FileInputDemo: React.FC = () => {
         inputText={t((i18n) => i18n.labels.file)}
         typeErrorMsg={t((i18n) => i18n.errors.fileType)?.replace(
           "{?}",
-          values.settings.type
+          values.settings.type,
         )}
         filesUploader={filesUploader}
+        DownloadIcon={null}
         {...values.settings}
       />
 
@@ -97,6 +99,11 @@ const FileInputDemo: React.FC = () => {
       <FormSwitch
         name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
+      />
+
+      <FormSwitch
+        name={"settings.disabled"}
+        label={t((i18n) => i18n.misc.settings.disabled)}
       />
 
       <FormsDevtools noEditor buttonPosition="bottom-right" />

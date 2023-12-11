@@ -1,21 +1,20 @@
-import { FormAutocomplete } from "@hilma/forms";
+import { FormAutocomplete, FormSwitch } from "@hilma/forms";
 
-import React from "react";
-import { Divider, Typography } from "@mui/material";
-import * as yup from "yup";
 import {
-  useFormConfig,
-  useForm,
-  useAlert,
   FormProvider,
   FormSubmitButton,
-  FormCheckbox,
+  useAlert,
+  useForm,
+  useFormConfig,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { Divider, Typography } from "@mui/material";
+import React from "react";
+import * as yup from "yup";
 
+import { FormsDevtools } from "@hilma/forms-devtools";
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   autocomplete: yup
@@ -62,7 +61,7 @@ const AutocompleteDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -74,7 +73,7 @@ const AutocompleteDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -102,11 +101,11 @@ const AutocompleteDemo: React.FC = () => {
 
       <Divider sx={{ mb: 10 }} />
 
-      <FormCheckbox
+      <FormSwitch
         name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.freeSolo"}
         label={t((i18n) => i18n.misc.settings.freeSolo)}
       />
