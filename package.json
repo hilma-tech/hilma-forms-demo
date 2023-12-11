@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@hilma/fileshandler-client": "^0.0.40",
-    "@hilma/forms": "^0.0.0-9f4e2a8b2430",
+    "@hilma/forms": "file:hilma-forms-2.10.0.tgz",
     "@hilma/forms-devtools": "^0.1.0",
     "@hilma/i18n": "^0.4.0",
     "@hilma/tools": "^1.1.0",
