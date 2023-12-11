@@ -1,22 +1,21 @@
-import { FormImageInput } from "@hilma/forms";
+import { FormImageInput, FormSwitch } from "@hilma/forms";
 
-import React from "react";
-import { Divider } from "@mui/material";
-import * as yup from "yup";
+import { useFiles } from "@hilma/fileshandler-client";
 import {
-  useFormConfig,
-  useForm,
-  useAlert,
   FormProvider,
   FormSubmitButton,
-  FormCheckbox,
+  useAlert,
+  useForm,
+  useFormConfig,
 } from "@hilma/forms";
-import { useFiles } from "@hilma/fileshandler-client";
 import { provide } from "@hilma/tools";
+import { Divider } from "@mui/material";
+import React from "react";
+import * as yup from "yup";
 
+import { FormsDevtools } from "@hilma/forms-devtools";
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   image: yup.string().required(),
@@ -43,7 +42,7 @@ const ImageInputDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -55,7 +54,7 @@ const ImageInputDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -74,15 +73,15 @@ const ImageInputDemo: React.FC = () => {
 
       <Divider sx={{ mb: 10 }} />
 
-      <FormCheckbox
+      <FormSwitch
         name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.disableDragNDrop"}
         label={t((i18n) => i18n.misc.settings.disableDragNDrop)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.singleUpload"}
         label={t((i18n) => i18n.misc.settings.singleUpload)}
       />

@@ -1,22 +1,21 @@
-import { FormTextInput, FormPassword } from "@hilma/forms";
+import { FormPassword, FormSwitch, FormTextInput } from "@hilma/forms";
 
-import React from "react";
-import { Divider } from "@mui/material";
-import * as yup from "yup";
 import {
-  useFormConfig,
-  useForm,
-  useAlert,
   FormProvider,
   FormSubmitButton,
-  FormCheckbox,
+  useAlert,
+  useForm,
+  useFormConfig,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { Divider } from "@mui/material";
+import React from "react";
+import * as yup from "yup";
 
+import { FormsDevtools } from "@hilma/forms-devtools";
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
 import FormSlider from "../components/custom-forms/FormSlider";
-import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   textInput: yup.string().required().min(3),
@@ -45,7 +44,7 @@ const TextInputDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -57,7 +56,7 @@ const TextInputDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -81,19 +80,19 @@ const TextInputDemo: React.FC = () => {
 
       <Divider sx={{ mb: 10 }} />
 
-      <FormCheckbox
+      <FormSwitch
         name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.fast"}
         label={t((i18n) => i18n.misc.settings.fast)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.isLoading"}
         label={t((i18n) => i18n.misc.settings.isLoading)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />

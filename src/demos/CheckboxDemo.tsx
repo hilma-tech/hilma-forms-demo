@@ -1,21 +1,21 @@
 import { FormCheckbox } from "@hilma/forms";
 
-import React from "react";
-import { Divider } from "@mui/material";
-import * as yup from "yup";
 import {
-  useFormConfig,
-  useForm,
-  useAlert,
   FormProvider,
   FormSubmitButton,
   FormSwitch,
+  useAlert,
+  useForm,
+  useFormConfig,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { Divider } from "@mui/material";
+import React from "react";
+import * as yup from "yup";
 
+import { FormsDevtools } from "@hilma/forms-devtools";
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
-import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   checkbox: yup.boolean().isTrue("errors.isTrue.f|fields.checkbox|"),
@@ -38,7 +38,7 @@ const CheckboxDemo: React.FC = () => {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
       "success",
-      dir
+      dir,
     );
 
     console.log(values);
@@ -50,7 +50,7 @@ const CheckboxDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (

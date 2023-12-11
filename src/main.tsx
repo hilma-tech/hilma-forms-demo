@@ -12,13 +12,15 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { I18nProvider } from "./common/i18n";
 import App from "./App";
 
+import "./index.css";
+
 const client = new QueryClient();
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#481178"
-    }
+      main: "#481178",
+    },
   },
   typography: {
     fontFamily: ["'Heebo'", "sans-serif"].join(","),

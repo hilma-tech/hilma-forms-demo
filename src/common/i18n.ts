@@ -215,8 +215,8 @@ const table = createI18nText({
       endOfPage: "סוף התוצאות",
       foundResults: "נמצאו {!} תוצאות",
       page: "עמוד {!}",
-      showingResults: "מראה תוצאות {1} - {2} מתוך {3}"
-    }
+      showingResults: "מראה תוצאות {1} - {2} מתוך {3}",
+    },
   },
   en: {
     columnLabels: {
@@ -235,8 +235,8 @@ const table = createI18nText({
       endOfPage: "End of results",
       foundResults: "Found {!} results",
       page: "Page {!}",
-      showingResults: "Showing results {1} - {2} out of {3}"
-    }
+      showingResults: "Showing results {1} - {2} out of {3}",
+    },
   },
 });
 

@@ -1,23 +1,22 @@
-import { FormTextArea } from "@hilma/forms";
+import { FormSwitch, FormTextArea } from "@hilma/forms";
 
-import React from "react";
-import { Divider } from "@mui/material";
-import * as yup from "yup";
 import {
-  useFormConfig,
-  useForm,
-  useAlert,
   FormProvider,
   FormSubmitButton,
-  FormCheckbox,
   FormTextInput,
+  useAlert,
+  useForm,
+  useFormConfig,
 } from "@hilma/forms";
 import { provide } from "@hilma/tools";
+import { Divider } from "@mui/material";
+import React from "react";
+import * as yup from "yup";
 
+import { FormsDevtools } from "@hilma/forms-devtools";
 import { noop } from "../common/helpers";
 import { useDirection, useTranslate } from "../common/i18n";
 import FormSlider from "../components/custom-forms/FormSlider";
-import { FormsDevtools } from "@hilma/forms-devtools";
 
 const schema = yup.object({
   textArea: yup.string().required().min(10).max(240),
@@ -48,7 +47,7 @@ const TextAreaDemo: React.FC = () => {
   function handleSubmit(values: FormValues) {
     showAlert(
       t((i18n) => i18n.misc.onSubmit),
-      "success"
+      "success",
     );
 
     console.log(values);
@@ -60,7 +59,7 @@ const TextAreaDemo: React.FC = () => {
       form.dir = dir;
       form.translateFn = t;
     },
-    [dir, t]
+    [dir, t],
   );
 
   return (
@@ -80,26 +79,26 @@ const TextAreaDemo: React.FC = () => {
 
       <Divider sx={{ mb: 10 }} />
 
-      <FormCheckbox
+      <FormSwitch
         name={"settings.disabled"}
         label={t((i18n) => i18n.misc.settings.disabled)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.fast"}
         label={t((i18n) => i18n.misc.settings.fast)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.isLoading"}
         label={t((i18n) => i18n.misc.settings.isLoading)}
       />
-      <FormCheckbox
+      <FormSwitch
         name={"settings.rounded"}
         label={t((i18n) => i18n.misc.settings.rounded)}
       />
       <FormSlider
         name={"settings.rows"}
         label={`${t((i18n) => i18n.misc.settings.minRows)} - ${t(
-          (i18n) => i18n.misc.settings.maxRows
+          (i18n) => i18n.misc.settings.maxRows,
         )}`}
         displayValue={(value) => {
           if (!Array.isArray(value)) return `${value}`;
